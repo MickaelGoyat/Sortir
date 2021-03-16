@@ -28,5 +28,48 @@ class Sites
      */
     private $nomSite;
 
+    /**
+     * Sites constructor.
+     * @param int $noSite
+     * @param string $nomSite
+     */
+    public function __construct(int $noSite, string $nomSite)
+    {
+        $this->noSite = $noSite;
+        $this->nomSite = $nomSite;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNoSite(): int
+    {
+        return $this->noSite;
+    }
+
+    /**
+     * @param int $noSite
+     */
+    public function setNoSite(int $noSite): void
+    {
+        $this->noSite = $noSite;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNomSite(): string
+    {
+        return $this->nomSite;
+    }
+
+    /**
+     * @param string $nomSite
+     */
+    public function setNomSite(string $nomSite): void
+    {
+        $this->nomSite = $nomSite;
+    }
+
 
 }

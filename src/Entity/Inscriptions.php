@@ -37,5 +37,34 @@ class Inscriptions
      */
     private $dateInscription;
 
+    /**
+     * Inscriptions constructor.
+     * @param int $sortiesNoSortie
+     * @param int $participantsNoParticipant
+     * @param \DateTime $dateInscription
+     */
+    public function __construct(int $sortiesNoSortie, int $participantsNoParticipant, \DateTime $dateInscription)
+    {
+        $this->sortiesNoSortie = $sortiesNoSortie;
+        $this->participantsNoParticipant = $participantsNoParticipant;
+        $this->dateInscription = $dateInscription;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSortiesNoSortie(): int
+    {
+        return $this->sortiesNoSortie;
+    }
+
+    /**
+     * @param int $sortiesNoSortie
+     */
+    public function setSortiesNoSortie(int $sortiesNoSortie): void
+    {
+        $this->sortiesNoSortie = $sortiesNoSortie;
+    }
+
 
 }

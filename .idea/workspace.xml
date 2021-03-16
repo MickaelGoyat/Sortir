@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Rearrange initial code">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Generate Entity from Database + MySqlPlatform add 'bit' =&gt; 'boolean',">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Etats.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Etats.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Inscriptions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Inscriptions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Lieux.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Lieux.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Participants.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Participants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Sites.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Sites.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Sorties.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Sorties.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Villes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Villes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615814297306</updated>
       <workItem from="1615814298374" duration="428000" />
-      <workItem from="1615814738377" duration="8000000" />
+      <workItem from="1615814738377" duration="8881000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit Project Sortir.com">
       <created>1615816350111</created>
@@ -113,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615884631147</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Generate Entity from Database + MySqlPlatform add 'bit' =&gt; 'boolean',">
+      <created>1615887328707</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1615887328707</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,7 +131,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit Project Sortir.com" />
     <MESSAGE value="Rearrange initial code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rearrange initial code" />
+    <MESSAGE value="Generate Entity from Database + MySqlPlatform add 'bit' =&gt; 'boolean'," />
+    <option name="LAST_COMMIT_MESSAGE" value="Generate Entity from Database + MySqlPlatform add 'bit' =&gt; 'boolean'," />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

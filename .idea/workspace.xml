@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Initial commit Project Sortir.com">
+    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Rearrange initial code">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="origin/develop" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,12 +43,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="develop" />
-                    <option name="lastUsedInstant" value="1615817326" />
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1615884605" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1615816626" />
+                    <option name="branchName" value="develop" />
+                    <option name="lastUsedInstant" value="1615817326" />
                   </RecentBranch>
                 </list>
               </option>
@@ -78,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615814297306</updated>
       <workItem from="1615814298374" duration="428000" />
-      <workItem from="1615814738377" duration="5129000" />
+      <workItem from="1615814738377" duration="8000000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit Project Sortir.com">
       <created>1615816350111</created>
@@ -101,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615817043114</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Rearrange initial code">
+      <created>1615884631147</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1615884631147</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,7 +121,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit Project Sortir.com" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit Project Sortir.com" />
+    <MESSAGE value="Rearrange initial code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rearrange initial code" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

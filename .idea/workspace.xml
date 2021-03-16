@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Set Getter/Setter/Constructor" />
+    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Set Getter/Setter/Constructor">
+      <change afterPath="$PROJECT_DIR$/src/Repository/EtatsRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/InscriptionsRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/LieuxRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/ParticipantsRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/SitesRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/SortiesRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/VillesRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Etats.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Etats.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Inscriptions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Inscriptions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Participants.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Participants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,7 +53,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1615884605" />
+                    <option name="lastUsedInstant" value="1615889127" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="develop" />
@@ -64,7 +80,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

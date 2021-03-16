@@ -271,5 +271,15 @@ class Participants
         $this->sitesNoSite = $sitesNoSite;
     }
 
+    public function getAdministrateur(): ?bool
+    {
+        return $this->administrateur;
+    }
+
+    public function getActif(): ?bool
+    {
+        return $this->actif;
+    }
+
 
 }

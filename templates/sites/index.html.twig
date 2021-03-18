@@ -1,0 +1,27 @@
+
+{% block body %}
+    <title>Welcome to Symfony!</title>
+
+    <table id="lieuTable"  border="1px" style="width:100%">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom du Sites</th>
+
+
+        </tr>
+        {% for site in sites %}
+        <div class="site">
+            <tr>
+                <td> {{ site.noSite }}</td>
+                <td> {{ site.nomSite }}</td>
+            </tr>
+
+
+            {% endfor %}
+        </div>
+
+    </table>
+
+
+
+{% endblock %}

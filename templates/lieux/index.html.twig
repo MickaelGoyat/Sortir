@@ -1,0 +1,37 @@
+
+{% block body %}
+    <title>Liste des lieux</title>
+<h1>Liste des lieux</h1>
+    <table id="lieuTable"  border="1px" style="width:100%">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom du Lieu</th>
+        <th scope="col">rue</th>
+        <th scope="col">latitude</th>
+        <th scope="col">longitude</th>
+        <th scope="col">Numéro Ville</th>
+
+    </tr>
+   {% for lieu in lieux %}
+    <div class="lieu">
+        <tr>
+            <td> {{ lieu.noLieu }}</td>
+            <td> {{ lieu.nomLieu }}</td>
+            <td> {{ lieu.rue }}</td>
+            <td> {{ lieu.latitude }}</td>
+            <td> {{ lieu.longitude }}</td>
+            <td> {{ lieu.villesNoVille}}</td>
+            <td><a href="{{ path('lieux_modifier' , {'noLieu' : lieu.noLieu }) }}"> Modifier <a/></td>
+        </tr>
+
+
+        {% endfor %}
+    </div>
+
+       </table>
+    <a href="{{ 'add'  }}">Ajout lieu</a>
+
+    <div class="lieu">
+
+
+{% endblock %}

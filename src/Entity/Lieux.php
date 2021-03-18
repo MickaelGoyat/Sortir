@@ -12,69 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Lieux
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="no_lieu", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $noLieu;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom_lieu", type="string", length=30, nullable=false)
-     */
-    private $nomLieu;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="rue", type="string", length=30, nullable=true)
-     */
-    private $rue;
-
-    /**
-     * @var float|null
-     *
-     * @ORM\Column(name="latitude", type="float", precision=10, scale=0, nullable=true)
-     */
-    private $latitude;
-
-    /**
-     * @var float|null
-     *
-     * @ORM\Column(name="longitude", type="float", precision=10, scale=0, nullable=true)
-     */
-    private $longitude;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="villes_no_ville", type="integer", nullable=false)
-     */
-    private $villesNoVille;
-
-    /**
-     * Lieux constructor.
-     * @param int $noLieu
-     * @param string $nomLieu
-     * @param string|null $rue
-     * @param float|null $latitude
-     * @param float|null $longitude
-     * @param int $villesNoVille
-     */
-    public function __construct(int $noLieu, string $nomLieu, ?string $rue, ?float $latitude, ?float $longitude, int $villesNoVille)
+    public function  __constuct()
     {
-        $this->noLieu = $noLieu;
-        $this->nomLieu = $nomLieu;
-        $this->rue = $rue;
-        $this->latitude = $latitude;
-        $this->longitude = $longitude;
-        $this->villesNoVille = $villesNoVille;
-    }
 
+
+    }
     /**
      * @return int
      */
@@ -170,6 +113,49 @@ class Lieux
     {
         $this->villesNoVille = $villesNoVille;
     }
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="no_lieu", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $noLieu;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_lieu", type="string", length=30, nullable=false)
+     */
+    private $nomLieu;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="rue", type="string", length=30, nullable=true)
+     */
+    private $rue;
+
+    /**
+     * @var float|null
+     *
+     * @ORM\Column(name="latitude", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $latitude;
+
+    /**
+     * @var float|null
+     *
+     * @ORM\Column(name="longitude", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $longitude;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="villes_no_ville", type="integer", nullable=false)
+     */
+    private $villesNoVille;
 
 
 }

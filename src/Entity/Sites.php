@@ -13,31 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 class Sites
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="no_site", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $noSite;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom_site", type="string", length=30, nullable=false)
-     */
-    private $nomSite;
-
-    /**
      * Sites constructor.
-     * @param int $noSite
-     * @param string $nomSite
      */
-    public function __construct(int $noSite, string $nomSite)
+    public function __construct()
     {
-        $this->noSite = $noSite;
-        $this->nomSite = $nomSite;
     }
+
 
     /**
      * @return int
@@ -70,6 +51,22 @@ class Sites
     {
         $this->nomSite = $nomSite;
     }
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="no_site", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $noSite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_site", type="string", length=30, nullable=false)
+     */
+    private $nomSite;
 
 
 }

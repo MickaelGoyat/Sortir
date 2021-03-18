@@ -28,31 +28,5 @@ class Etats
      */
     private $libelle;
 
-    /**
-     * Etats constructor.
-     * @param int $noEtat
-     * @param string $libelle
-     */
-    public function __construct(int $noEtat, string $libelle)
-    {
-        $this->noEtat = $noEtat;
-        $this->libelle = $libelle;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNoEtat(): int
-    {
-        return $this->noEtat;
-    }
-
-    /**
-     * @param int $noEtat
-     */
-    public function setNoEtat(int $noEtat): void
-    {
-        $this->noEtat = $noEtat;
-    }
 
 }

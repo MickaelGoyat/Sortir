@@ -4,33 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Add lieuType and update composer.json with security-core and validator">
-      <change afterPath="$PROJECT_DIR$/templates/sorties/add.sorties.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/sorties/modifier.sorties.html.twig" afterDir="false" />
+    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Update registration form">
+      <change afterPath="$PROJECT_DIR$/src/Form/SortiesType.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/templates/sorties/sorties.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/user/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Sortir.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sortir.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/LieuxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LieuxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Participants.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Participants.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Sorties.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Sorties.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SortiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SortiesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lieux/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lieux/add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lieux/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lieux/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lieux/modifier.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lieux/modifier.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profil/createProfil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil/createProfil.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sites/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sites/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sorties/add.sorties.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sorties/add.sorties.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +157,11 @@
       <path value="$PROJECT_DIR$/vendor/symfony/debug-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pnMFZhqQVa7fOvekeunOkGXE75" />
@@ -207,7 +196,7 @@
       <workItem from="1616151877323" duration="31946000" />
       <workItem from="1616423265525" duration="8913000" />
       <workItem from="1616460194080" duration="1765000" />
-      <workItem from="1616503032250" duration="823000" />
+      <workItem from="1616503032250" duration="10364000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit Project Sortir.com">
       <created>1615816350111</created>
@@ -279,7 +268,21 @@
       <option name="project" value="LOCAL" />
       <updated>1616081580497</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="[Feature] Add header/footer + Login page + Bootstrap 4 add in all pages + add profiler and debug-pack in composer for patch the double auth in others pages.">
+      <created>1616504183996</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1616504183996</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Update registration form">
+      <created>1616504249183</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1616504249183</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +309,9 @@
     <MESSAGE value="Create Repository + Installation twig + Modify version in composer.json" />
     <MESSAGE value="Create first route test" />
     <MESSAGE value="Add lieuType and update composer.json with security-core and validator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add lieuType and update composer.json with security-core and validator" />
+    <MESSAGE value="[Feature] Add header/footer + Login page + Bootstrap 4 add in all pages + add profiler and debug-pack in composer for patch the double auth in others pages." />
+    <MESSAGE value="Update registration form" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update registration form" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

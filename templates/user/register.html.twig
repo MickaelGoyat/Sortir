@@ -1,0 +1,11 @@
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    {% include 'base.html.twig' %}
+    <h1>Inscription</h1>
+    {{ form_start(registrationForm) }}
+    {{ form_widget(registrationForm) }}
+    <input type="submit" value="Inscription">
+    {{ form_end(registrationForm) }}
+    {% include 'footer.html.twig' %}
+{% endblock %}

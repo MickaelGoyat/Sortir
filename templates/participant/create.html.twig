@@ -1,0 +1,35 @@
+{% include 'base.html.twig' %}
+{% block body %}
+    <title>Liste des participants</title>
+    <h1>Liste des participants</h1>
+    <table id="participantTable"  border="1px" style="width:100%">
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Pseudo</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Téléphone</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Site de Rattachement</th>
+
+        </tr>
+        {% for participant in participants %}
+        <div class="participant">
+            <tr>
+                <td> {{ participant.noParticipant }}</td>
+                <td> {{ participant.username }}</td>
+                <td> {{ participant.prenom }}</td>
+                <td> {{ participant.nom }}</td>
+                <td> {{ participant.telephone }}</td>
+                <td> {{ participant.mail }}</td>
+                <td> {{ participant.sitesNoSite }}</td>
+                <td><a href="{{ path('_modifier' , {'noParticipant' : participant.noParticipant }) }}"> Modifier </a></td>
+            </tr>
+
+
+            {% endfor %}
+        </div>
+
+    </table>
+    <a href="{{ 'add'  }}">Ajout participant</a>
+{% endblock %}

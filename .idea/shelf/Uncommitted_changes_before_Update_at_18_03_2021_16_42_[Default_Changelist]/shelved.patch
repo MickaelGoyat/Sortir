@@ -1,0 +1,279 @@
+Index: src/Controller/ProfilController.php
+===================================================================
+diff --git a/src/Controller/ProfilController.php b/src/Controller/ProfilController.php
+deleted file mode 100644
+--- a/src/Controller/ProfilController.php	(revision f4e0c0b45510e4303a7bd1c3b75d8f7f0b27dfab)
++++ /dev/null	(revision f4e0c0b45510e4303a7bd1c3b75d8f7f0b27dfab)
+@@ -1,33 +0,0 @@
+-<?php
+-
+-
+-namespace App\Controller;
+-
+-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+-use Symfony\Component\HttpFoundation\Response;
+-use Symfony\Component\Routing\Annotation\Route;
+-
+-/**
+- * @Route("/profil", name="profil")
+- */
+-class ProfilController extends AbstractController
+-{
+-    /**
+-     * @Route("/", name="_index")
+-     */
+-    public function index(): Response
+-    {
+-        return $this->render('profil/createProfil.html.twig', [
+-            'logo' => 'Ceci est le logo de sortir.com',
+-            'pseudo' => 'Pseudo',
+-            'prenom' => 'Prénom',
+-            'nom' => 'Nom',
+-            'telephone' => 'Téléphone',
+-            'email' => 'E-mail',
+-            'mdp' => 'Mot de passe',
+-            'confirmation' => 'Confirmation',
+-            'siteRattachement' => 'Site de rattachement',
+-            'photo' => 'Ma photo',
+-        ]);
+-    }
+-}
+\ No newline at end of file
+Index: templates/profil/createProfil.html.twig
+===================================================================
+diff --git a/templates/profil/createProfil.html.twig b/templates/profil/createProfil.html.twig
+deleted file mode 100644
+--- a/templates/profil/createProfil.html.twig	(revision f4e0c0b45510e4303a7bd1c3b75d8f7f0b27dfab)
++++ /dev/null	(revision f4e0c0b45510e4303a7bd1c3b75d8f7f0b27dfab)
+@@ -1,33 +0,0 @@
+-{% include 'base.html.twig' %}
+-{% block body %}
+-    <div class="container-fluid">
+-        <h1>{{ logo }}</h1>
+-    </div>
+-    <div class="container-fluid">
+-        <input>{{ pseudo }}</input>
+-    </div>
+-    <div class="container-fluid">
+-        <input>{{ prenom }}</input>
+-    </div>
+-    <div class="container-fluid">
+-        <input>{{ nom }}</input>
+-    </div>
+-    <div class="container-fluid">
+-        <input>{{ telephone }}</input>
+-    </div>
+-    <div class="container-fluid">
+-        <input>{{ email }}</input>
+-    </div>
+-    <div class="container-fluid">
+-        <input>{{ mdp }}</input>
+-    </div>
+-    <div class="container-fluid">
+-        <input>{{ confirmation }}</input>
+-    </div>
+-    <div class="container-fluid">
+-        <input>{{ siteRattachement }}</input>
+-    </div>
+-    <div class="container-fluid">
+-        <input>{{ photo }}</input>
+-    </div>
+-{% endblock %}
+\ No newline at end of file
+Index: templates/participant/create.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/participant/create.html.twig b/templates/participant/create.html.twig
+new file mode 100644
+--- /dev/null	(date 1616082138942)
++++ b/templates/participant/create.html.twig	(date 1616082138942)
+@@ -0,0 +1,24 @@
++{% include 'base.html.twig' %}
++{% block body %}
++    <div class="text-center">
++        <h1>{{ participant.pseudo }}</h1>
++        <div>
++            <label for="prenom">Prénom : {{ participant.prenom }}</label>
++        </div>
++        <div>
++            <label for="nom">Nom : {{ participant.nom }}</label>
++        </div>
++        <div>
++            <label for="telephone">Téléphone : {{ participant.telephone }}</label>
++        </div>
++        <div>
++            <label for="">Email : {{ participant.email }}</label>
++        </div>
++        <div>
++            <label for="">Campus : {{ participant.campus.nom }}</label>
++        </div>
++        <div>
++            <a href="{{ path("sorties_display") }}"><button class="btn btn-info " type="button" name="Retour">Retour</button></a>
++        </div>
++    </div>
++{% endblock %}
+\ No newline at end of file
+Index: src/Controller/ParticipantController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Controller/ParticipantController.php b/src/Controller/ParticipantController.php
+new file mode 100644
+--- /dev/null	(date 1616082138930)
++++ b/src/Controller/ParticipantController.php	(date 1616082138930)
+@@ -0,0 +1,24 @@
++<?php
++
++
++namespace App\Controller;
++
++use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
++use Symfony\Component\HttpFoundation\Response;
++use Symfony\Component\Routing\Annotation\Route;
++
++/**
++ * @Route("/participant", name="participant")
++ */
++class ParticipantController extends AbstractController
++{
++    /**
++     * @Route("/", name="participant")
++     */
++    public function index(): Response
++    {
++        return $this->render('participant/create.html.twig', [
++            'controller_name' => 'ParticipantController',
++        ]);
++    }
++}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"7cdd8dd3-8ade-4b69-9c28-eba5287d8e59\" name=\"Default Changelist\" comment=\"Create first route test\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_03_2021_11_03__Default_Changelist_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_03_2021_11_03__Default_Changelist_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/assets/controllers.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/assets/controllers.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/config/bundles.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/config/bundles.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/package-lock.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/package-lock.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/symfony.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/symfony.lock\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\" synchronizationState=\"SYNCHRONIZE\">\r\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"composer.json\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"GitToolBoxStore\">\r\n    <option name=\"projectConfigVersion\" value=\"2\" />\r\n    <option name=\"recentBranches\">\r\n      <RecentBranches>\r\n        <option name=\"branchesForRepo\">\r\n          <list>\r\n            <RecentBranchesForRepo>\r\n              <option name=\"branches\">\r\n                <list>\r\n                  <RecentBranch>\r\n                    <option name=\"branchName\" value=\"master\" />\r\n                    <option name=\"lastUsedInstant\" value=\"1615889127\" />\r\n                  </RecentBranch>\r\n                  <RecentBranch>\r\n                    <option name=\"branchName\" value=\"develop\" />\r\n                    <option name=\"lastUsedInstant\" value=\"1615817326\" />\r\n                  </RecentBranch>\r\n                </list>\r\n              </option>\r\n              <option name=\"repositoryRootUrl\" value=\"file://$PROJECT_DIR$\" />\r\n            </RecentBranchesForRepo>\r\n          </list>\r\n        </option>\r\n      </RecentBranches>\r\n    </option>\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\">\r\n    <include_path>\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dotenv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/filesystem\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-code\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/flex\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-eventmanager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/framework-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/maker-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/annotations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/string\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/collections\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/yaml\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/migrations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/orm\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/persistence\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/sql-formatter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/stopwatch\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/proxy-manager-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/doctrine-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/twig\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/config\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dependency-injection\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/deprecation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/asset\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-info\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-guard\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-http\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-csrf\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-core\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-access\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/validator\" />\r\n    </include_path>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1pnMFZhqQVa7fOvekeunOkGXE75\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"DatabaseDriversLRU\" value=\"mysql\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.pluginManager\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"7cdd8dd3-8ade-4b69-9c28-eba5287d8e59\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1615814297306</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1615814297306</updated>\r\n      <workItem from=\"1615814298374\" duration=\"428000\" />\r\n      <workItem from=\"1615814738377\" duration=\"9219000\" />\r\n      <workItem from=\"1615910730855\" duration=\"16324000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Initial commit Project Sortir.com\">\r\n      <created>1615816350111</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1615816350111</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Initial commit Project Sortir.com\">\r\n      <created>1615816916304</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1615816916304</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Initial commit Project Sortir.com\">\r\n      <created>1615817043114</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1615817043114</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Rearrange initial code\">\r\n      <created>1615884631147</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1615884631147</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Generate Entity from Database + MySqlPlatform add 'bit' =&gt; 'boolean',\">\r\n      <created>1615887328707</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1615887328707</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Set Getter/Setter/Constructor\">\r\n      <created>1615888362997</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1615888362997</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Create Repository + Installation twig + Modify version in composer.json\">\r\n      <created>1615899967480</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1615899967480</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Create first route test\">\r\n      <created>1615903241459</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1615903241459</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Create first route test\">\r\n      <created>1615903255451</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1615903255451</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"10\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Initial commit Project Sortir.com\" />\r\n    <MESSAGE value=\"Rearrange initial code\" />\r\n    <MESSAGE value=\"Generate Entity from Database + MySqlPlatform add 'bit' =&gt; 'boolean',\" />\r\n    <MESSAGE value=\"Set Getter/Setter/Constructor,\" />\r\n    <MESSAGE value=\"Set Getter/Setter/Constructor\" />\r\n    <MESSAGE value=\"Create Repository + Installation twig + Modify version in composer.json\" />\r\n    <MESSAGE value=\"Create first route test\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Create first route test\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f4e0c0b45510e4303a7bd1c3b75d8f7f0b27dfab)
++++ b/.idea/workspace.xml	(date 1616082138802)
+@@ -5,19 +5,16 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Create first route test">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_03_2021_11_03__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_03_2021_11_03__Default_Changelist_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/assets/controllers.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Controller/ProfilController.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/login/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/index.html.twig" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/profil/createProfil.html.twig" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
++  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+     <execution />
+   </component>
+@@ -156,7 +153,11 @@
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
++    <property name="node.js.detected.package.eslint" value="true" />
++    <property name="node.js.detected.package.tslint" value="true" />
++    <property name="node.js.path.for.package.eslint" value="project" />
+     <property name="node.js.path.for.package.tslint" value="project" />
++    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+     <property name="nodejs_package_manager_path" value="npm" />
+     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+@@ -172,7 +173,8 @@
+       <updated>1615814297306</updated>
+       <workItem from="1615814298374" duration="428000" />
+       <workItem from="1615814738377" duration="9219000" />
+-      <workItem from="1615910730855" duration="16324000" />
++      <workItem from="1615910730855" duration="21383000" />
++      <workItem from="1616072046004" duration="8073000" />
+     </task>
+     <task id="LOCAL-00001" summary="Initial commit Project Sortir.com">
+       <created>1615816350111</created>
+@@ -237,7 +239,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1615903255451</updated>
+     </task>
+-    <option name="localTasksCounter" value="10" />
++    <task id="LOCAL-00010" summary="Installation WebPack + Non finition du formulaire de login">
++      <created>1616062100399</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1616062100399</updated>
++    </task>
++    <task id="LOCAL-00011" summary="git ignore workspace.xml">
++      <created>1616079968351</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1616079968351</updated>
++    </task>
++    <option name="localTasksCounter" value="12" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -263,7 +279,9 @@
+     <MESSAGE value="Set Getter/Setter/Constructor" />
+     <MESSAGE value="Create Repository + Installation twig + Modify version in composer.json" />
+     <MESSAGE value="Create first route test" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Create first route test" />
++    <MESSAGE value="Installation WebPack + Non finition du formulaire de login" />
++    <MESSAGE value="git ignore workspace.xml" />
++    <option name="LAST_COMMIT_MESSAGE" value="git ignore workspace.xml" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
+Index: templates/login/index.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{% include 'base.html.twig' %}\r\n{% block title %}Page de login{% endblock %}\r\n{% block body %}\r\n    <div class=\"container-fluid\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12 min-vh-100 d-flex flex-column justify-content-center\">\r\n                    <div class=\"row\">\r\n                        <div class=\"col-lg-6 col-md-8 mx-auto\">\r\n                            <div class=\"card rounded shadow shadow-sm\">\r\n                                <div class=\"card-header text-center\">\r\n                                    <h3 class=\"mb-0\">Login</h3>\r\n                                </div>\r\n                                <div class=\"card-body\">\r\n                                    <form class=\"form\" role=\"form\" autocomplete=\"off\" id=\"formLogin\" novalidate=\"\"\r\n                                          method=\"POST\">\r\n                                        <div class=\"form-group\">\r\n                                            <label for=\"uname1\">Username</label>\r\n                                            <input type=\"text\" class=\"form-control form-control-lg rounded-0\"\r\n                                                   name=\"uname1\" id=\"uname1\" required=\"\">\r\n                                            <div class=\"invalid-feedback\">Oops, you missed this one.</div>\r\n                                        </div>\r\n                                        <div class=\"form-group\">\r\n                                            <label>Password</label>\r\n                                            <input type=\"password\" class=\"form-control form-control-lg rounded-0\"\r\n                                                   id=\"pwd1\" required=\"\" autocomplete=\"new-password\">\r\n                                            <div class=\"invalid-feedback\">Enter your password too!</div>\r\n                                        </div>\r\n                                        <div>\r\n                                            <label class=\"custom-control custom-checkbox mb-3\">\r\n                                                <input type=\"checkbox\" class=\"custom-control-input\" id=\"customCheck1\">\r\n                                                <label class=\"custom-control-label\" for=\"customCheck1\">Se souvenir de\r\n                                                    moi</label>\r\n                                            </label>\r\n                                        </div>\r\n                                        <div class=\"text-center\">\r\n                                            <button type=\"submit\" class=\"btn btn-success btn-lg\" id=\"btnLogin\">\r\n                                                Login\r\n                                            </button>\r\n                                        </div>\r\n                                    </form>\r\n                                </div>\r\n                                <!--/card-block-->\r\n                            </div>\r\n                            <!-- /form card login -->\r\n\r\n                        </div>\r\n\r\n\r\n                    </div>\r\n                    <!--/row-->\r\n\r\n                </div>\r\n                <!--/col-->\r\n            </div>\r\n            <!--/row-->\r\n        </div>\r\n        <!--/container-->\r\n    </div>\r\n{% endblock %}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/login/index.html.twig b/templates/login/index.html.twig
+--- a/templates/login/index.html.twig	(revision f4e0c0b45510e4303a7bd1c3b75d8f7f0b27dfab)
++++ b/templates/login/index.html.twig	(date 1616082060585)
+@@ -12,18 +12,20 @@
+                                     <h3 class="mb-0">Login</h3>
+                                 </div>
+                                 <div class="card-body">
+-                                    <form class="form" role="form" autocomplete="off" id="formLogin" novalidate=""
+-                                          method="POST">
++                                    <form class="form" role="form" autocomplete="off"
++                                          method="post">
+                                         <div class="form-group">
+-                                            <label for="uname1">Username</label>
++                                            <label for="login_username">Username</label>
+                                             <input type="text" class="form-control form-control-lg rounded-0"
+-                                                   name="uname1" id="uname1" required="">
++                                                   id="login_username" name="_username" value="{{ loginUsername }}"
++                                                   required="">
+                                             <div class="invalid-feedback">Oops, you missed this one.</div>
+                                         </div>
+                                         <div class="form-group">
+-                                            <label>Password</label>
++                                            <label for="login_password">Password</label>
+                                             <input type="password" class="form-control form-control-lg rounded-0"
+-                                                   id="pwd1" required="" autocomplete="new-password">
++                                                   id="login_password" name="_password" required=""
++                                                   autocomplete="new-password">
+                                             <div class="invalid-feedback">Enter your password too!</div>
+                                         </div>
+                                         <div>

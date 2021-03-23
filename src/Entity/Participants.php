@@ -64,9 +64,9 @@ class Participants implements UserInterface
 
     /**
      *
-     * @ORM\Column(name="mot_de_passe", type="string", length=255)
+     * @ORM\Column(name="password", type="string", length=255)
      */
-    private string $motDePasse;
+    private string $password;
 
 
     /**
@@ -82,9 +82,8 @@ class Participants implements UserInterface
     private $actif;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="sites_no_site", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Sites", inversedBy="participants")
+     * @ORM\JoinColumn(nullable=true, referencedColumnName="no_site")
      */
     private $sitesNoSite;
 
@@ -126,10 +125,7 @@ class Participants implements UserInterface
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getPrenom(): string
+    public function getPrenom(): ?string
     {
         return $this->prenom;
     }
@@ -174,12 +170,12 @@ class Participants implements UserInterface
 
     public function getPassword(): ?string
     {
-        return $this->motDePasse;
+        return $this->password;
     }
 
-    public function setPassword(string $motDePasse): self
+    public function setPassword(string $password): self
     {
-        $this->motDePasse = $motDePasse;
+        $this->password = $password;
 
         return $this;
     }
@@ -217,15 +213,16 @@ class Participants implements UserInterface
     /**
      * @return int
      */
-    public function getSitesNoSite(): int
+    /**
+     */
+    public function getSitesNoSite()
     {
         return $this->sitesNoSite;
     }
 
     /**
-     * @param int $sitesNoSite
      */
-    public function setSitesNoSite(int $sitesNoSite): void
+    public function setSitesNoSite($sitesNoSite): void
     {
         $this->sitesNoSite = $sitesNoSite;
     }

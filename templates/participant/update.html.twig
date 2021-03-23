@@ -1,0 +1,24 @@
+{% include 'base.html.twig' %}
+<div>
+
+    <h1>Modification d'un Participant : </h1>
+    <table border="1px">
+        <tr>
+            <td> Pseudo</td>
+            <td> Prénom</td>
+            <td> Nom</td>
+            <td> Téléphone</td>
+            <td> E-mail</td>
+            <td> Site de rattachement</td>
+        </tr>
+        <tr>
+            <td>{{ participant.username }}</td>
+            <td>{{ participant.prenom }}</td>
+            <td>{{ participant.nom }}</td>
+            <td>{{ participant.telephone }}</td>
+            <td>{{ participant.mail }}</td>
+            <td>{{ participant.sitesNoSite }}</td>
+
+        </tr>
+    </table>
+</div>

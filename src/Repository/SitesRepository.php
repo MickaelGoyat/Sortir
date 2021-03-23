@@ -19,6 +19,15 @@ class SitesRepository extends ServiceEntityRepository
         parent::__construct($registry, Sites::class);
     }
 
+    public function orderByNom()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.noSite', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return Participant[] Returns an array of Participant objects
     //  */

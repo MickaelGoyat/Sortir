@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="add sorties and annotations in composer">
     <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Update registration form" />
     <change afterPath="$PROJECT_DIR$/src/Form/SortiesType.php" afterDir="false" />
     <change afterPath="$PROJECT_DIR$/templates/sorties/sorties.html.twig" afterDir="false" />
@@ -11,11 +12,6 @@
     <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
     <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Create first route test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SortiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SortiesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sorties/add.sorties.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sorties/add.sorties.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,6 +207,7 @@
       <workItem from="1616151877323" duration="31946000" />
       <workItem from="1616423265525" duration="8913000" />
       <workItem from="1616460194080" duration="1765000" />
+      <workItem from="1616503032250" duration="12022000" />
       <workItem from="1616503032250" duration="823000" />
       <workItem from="1616400464876" duration="15478000" />
       <workItem from="1616486398824" duration="690000" />
@@ -301,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616504249183</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add sorties and annotations in composer">
+      <created>1616514182396</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1616514182396</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +334,8 @@
     <MESSAGE value="Add lieuType and update composer.json with security-core and validator" />
     <MESSAGE value="[Feature] Add header/footer + Login page + Bootstrap 4 add in all pages + add profiler and debug-pack in composer for patch the double auth in others pages." />
     <MESSAGE value="Update registration form" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update registration form" />
+    <MESSAGE value="add sorties and annotations in composer" />
+    <option name="LAST_COMMIT_MESSAGE" value="add sorties and annotations in composer" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -60,7 +60,7 @@ class LoginController extends AbstractController
             'nom' => 'Nom',
             'telephone' => 'Téléphone',
             'email' => 'E-mail',
-            'mdp' => 'Mot de passe',
+            'password' => 'Mot de passe',
             'confirmation' => 'Confirmation',
             'siteRattachement' => 'Site de rattachement',
             'photo' => 'Ma photo',

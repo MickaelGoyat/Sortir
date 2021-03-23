@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProfilController extends AbstractController
 {
     /**
-     * @Route("/", name="_index")
+     * @Route("/profil", name="_index")
      */
     public function index(): Response
     {

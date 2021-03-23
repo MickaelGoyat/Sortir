@@ -1,11 +1,35 @@
 {% include 'base.html.twig' %}
-<h1>Ajout d'un lieu</h1>
-
-<div>
-    {{ form_start(lieuForm) }}
-    {{ form_widget(lieuForm) }}
-    <button type="submit">Send</button>
-
-    {{ form_end(lieuForm) }}
-
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-flex flex-column justify-content-center" style="margin-top:10rem;">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 mx-auto">
+                        <div class="card rounded shadow shadow-sm">
+                            <div class="card-header text-center">
+                                <h3 class="mb-0">Ajouter un lieu</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="login_password">
+                                        {{ form_start(lieuForm) }}
+                                        {{ form_widget(lieuForm) }}
+                                        <button class="btn btn-primary" type="submit">Envoyer</button>
+                                        {{ form_end(lieuForm) }}
+                                    </label>
+                                </div>
+                            </div>
+                            <!--/card-block-->
+                        </div>
+                        <!-- /form card login -->
+                    </div>
+                </div>
+                <!--/row-->
+            </div>
+            <!--/col-->
+        </div>
+        <!--/row-->
+    </div>
+    <!--/container-->
 </div>
+{% include 'footer.html.twig' %}

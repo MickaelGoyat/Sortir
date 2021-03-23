@@ -4,20 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Create first route test">
+    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Add lieuType and update composer.json with security-core and validator">
+      <change afterPath="$PROJECT_DIR$/templates/sorties/add.sorties.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/sorties/modifier.sorties.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/sorties/sorties.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/register.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LieuxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LieuxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfilController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Participants.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Participants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Sorties.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Sorties.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lieux/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lieux/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lieux/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lieux/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lieux/modifier.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lieux/modifier.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profil/createProfil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil/createProfil.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sites/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sites/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -70,6 +90,7 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
@@ -147,6 +168,11 @@
       <path value="$PROJECT_DIR$/vendor/symfony/intl" />
       <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
       <path value="$PROJECT_DIR$/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pnMFZhqQVa7fOvekeunOkGXE75" />
@@ -160,6 +186,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -175,6 +202,12 @@
       <workItem from="1615814298374" duration="428000" />
       <workItem from="1615814738377" duration="9219000" />
       <workItem from="1615910730855" duration="16324000" />
+      <workItem from="1616086307268" duration="7570000" />
+      <workItem from="1616151533561" duration="333000" />
+      <workItem from="1616151877323" duration="31946000" />
+      <workItem from="1616423265525" duration="8913000" />
+      <workItem from="1616460194080" duration="1765000" />
+      <workItem from="1616503032250" duration="823000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit Project Sortir.com">
       <created>1615816350111</created>
@@ -239,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615903255451</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add lieuType and update composer.json with security-core and validator">
+      <created>1616081580497</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1616081580497</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +295,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit Project Sortir.com" />
@@ -264,7 +305,8 @@
     <MESSAGE value="Set Getter/Setter/Constructor" />
     <MESSAGE value="Create Repository + Installation twig + Modify version in composer.json" />
     <MESSAGE value="Create first route test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create first route test" />
+    <MESSAGE value="Add lieuType and update composer.json with security-core and validator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add lieuType and update composer.json with security-core and validator" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

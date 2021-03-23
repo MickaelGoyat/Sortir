@@ -1,37 +1,40 @@
-
+{% include 'base.html.twig' %}
 {% block body %}
     <title>Liste des lieux</title>
-<h1>Liste des lieux</h1>
-    <table id="lieuTable"  border="1px" style="width:100%">
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nom du Lieu</th>
-        <th scope="col">rue</th>
-        <th scope="col">latitude</th>
-        <th scope="col">longitude</th>
-        <th scope="col">Numéro Ville</th>
-
-    </tr>
-   {% for lieu in lieux %}
-    <div class="lieu">
+    <h1 class="text-center" style="margin-top:2rem;">Liste des lieux</h1>
+    <div class="container">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
         <tr>
-            <td> {{ lieu.noLieu }}</td>
-            <td> {{ lieu.nomLieu }}</td>
-            <td> {{ lieu.rue }}</td>
-            <td> {{ lieu.latitude }}</td>
-            <td> {{ lieu.longitude }}</td>
-            <td> {{ lieu.villesNoVille}}</td>
-            <td><a href="{{ path('lieux_modifier' , {'noLieu' : lieu.noLieu }) }}"> Modifier <a/></td>
+            <th scope="col">N°</th>
+            <th scope="col">Nom du Lieu</th>
+            <th scope="col">rue</th>
+            <th scope="col">latitude</th>
+            <th scope="col">longitude</th>
+            <th scope="col">Numéro Ville</th>
+            <th scope="col">Update</th>
         </tr>
-
-
-        {% endfor %}
-    </div>
-
-       </table>
-    <a href="{{ 'add'  }}">Ajout lieu</a>
-
+        </thead>
+        <tbody>
+        {% for lieu in lieux %}
+        <div class="lieu">
+            <tr>
+                <td> {{ lieu.noLieu }}</td>
+                <td> {{ lieu.nomLieu }}</td>
+                <td> {{ lieu.rue }}</td>
+                <td> {{ lieu.latitude }}</td>
+                <td> {{ lieu.longitude }}</td>
+                <td> {{ lieu.villesNoVille }}</td>
+                <td>
+                    <a class="text-center" href="{{ path('lieux_modifier' , {'noLieu' : lieu.noLieu }) }}">
+                        Modifier un lieu </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </div>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="{{ 'add' }}">Ajouter un lieu</a>
     <div class="lieu">
-
-
+    {% include 'footer.html.twig' %}
 {% endblock %}

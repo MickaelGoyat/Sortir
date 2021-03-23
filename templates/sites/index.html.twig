@@ -1,4 +1,3 @@
-
 {% block body %}
     <title>Welcome to Symfony!</title>
 
@@ -6,8 +5,6 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Nom du Sites</th>
-
-
         </tr>
         {% for site in sites %}
         <div class="site">
@@ -15,13 +12,7 @@
                 <td> {{ site.noSite }}</td>
                 <td> {{ site.nomSite }}</td>
             </tr>
-
-
             {% endfor %}
         </div>
-
     </table>
-
-
-
 {% endblock %}

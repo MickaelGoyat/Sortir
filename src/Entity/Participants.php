@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Participants
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="participants", uniqueConstraints={@ORM\UniqueConstraint(name="participants_pseudo_uk", columns={"pseudo"})})
  * @ORM\Entity
  */
-class Participants
+class Participants implements UserInterface
 {
     /**
      * @var int
@@ -24,92 +25,68 @@ class Participants
     /**
      * @var string
      *
-     * @ORM\Column(name="pseudo", type="string", length=30, nullable=false)
+     * @ORM\Column(name="pseudo", type="string", length=30, nullable=false, unique=true)
      */
     private $pseudo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=30, nullable=false)
+     * @ORM\Column(name="nom", type="string", length=30, nullable=true)
      */
     private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=30, nullable=false)
+     * @ORM\Column(name="prenom", type="string", length=30, nullable=true)
      */
     private $prenom;
+
+    public function __construct()
+    {
+        $this->roles = [ 'ROLE_USER' ];
+    }
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="telephone", type="string", length=15, nullable=true)
+     * @ORM\Column(name="telephone", type="string", length=10, nullable=true)
      */
     private $telephone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="mail", type="string", length=20, nullable=false)
+     * @ORM\Column(name="mail", type="string",length=100, nullable=false)
      */
     private $mail;
 
     /**
-     * @var string
      *
-     * @ORM\Column(name="mot_de_passe", type="string", length=20, nullable=false)
+     * @ORM\Column(name="mot_de_passe", type="string", length=255)
      */
-    private $motDePasse;
+    private string $motDePasse;
+
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="administrateur", type="boolean", nullable=false)
-     */
-    private $administrateur;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="actif", type="boolean", nullable=false)
+     * @ORM\Column(name="actif", type="boolean", nullable=true)
      */
     private $actif;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="sites_no_site", type="integer", nullable=false)
+     * @ORM\Column(name="sites_no_site", type="integer", nullable=true)
      */
     private $sitesNoSite;
-
-    /**
-     * Participants constructor.
-     * @param int $noParticipant
-     * @param string $pseudo
-     * @param string $nom
-     * @param string $prenom
-     * @param string|null $telephone
-     * @param string $mail
-     * @param string $motDePasse
-     * @param bool $administrateur
-     * @param bool $actif
-     * @param int $sitesNoSite
-     */
-    public function __construct(int $noParticipant, string $pseudo, string $nom, string $prenom, ?string $telephone, string $mail, string $motDePasse, bool $administrateur, bool $actif, int $sitesNoSite)
-    {
-        $this->noParticipant = $noParticipant;
-        $this->pseudo = $pseudo;
-        $this->nom = $nom;
-        $this->prenom = $prenom;
-        $this->telephone = $telephone;
-        $this->mail = $mail;
-        $this->motDePasse = $motDePasse;
-        $this->administrateur = $administrateur;
-        $this->actif = $actif;
-        $this->sitesNoSite = $sitesNoSite;
-    }
 
     /**
      * @return int
@@ -127,36 +104,26 @@ class Participants
         $this->noParticipant = $noParticipant;
     }
 
-    /**
-     * @return string
-     */
-    public function getPseudo(): string
+    public function getUsername(): ?string
     {
         return $this->pseudo;
     }
 
-    /**
-     * @param string $pseudo
-     */
-    public function setPseudo(string $pseudo): void
+    public function setUsername(string $username): self
     {
-        $this->pseudo = $pseudo;
+        $this->pseudo = $username;
+        return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getNom(): string
+    public function getNom(): ?string
     {
         return $this->nom;
     }
 
-    /**
-     * @param string $nom
-     */
-    public function setNom(string $nom): void
+    public function setNom(string $nom): self
     {
         $this->nom = $nom;
+        return $this;
     }
 
     /**
@@ -199,45 +166,37 @@ class Participants
         return $this->mail;
     }
 
-    /**
-     * @param string $mail
-     */
-    public function setMail(string $mail): void
+    public function setMail(string $email): self
     {
-        $this->mail = $mail;
+        $this->mail = $email;
+        return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getMotDePasse(): string
+    public function getPassword(): ?string
     {
         return $this->motDePasse;
     }
 
-    /**
-     * @param string $motDePasse
-     */
-    public function setMotDePasse(string $motDePasse): void
+    public function setPassword(string $motDePasse): self
     {
         $this->motDePasse = $motDePasse;
+
+        return $this;
+    }
+
+    public function getRoles() :iterable
+    {
+        return $this->roles;
     }
 
     /**
-     * @return bool
+     * @param array|iterable $roles
      */
-    public function isAdministrateur(): bool
+    public function setRoles(iterable $roles): void
     {
-        return $this->administrateur;
+        $this->roles = $roles;
     }
 
-    /**
-     * @param bool $administrateur
-     */
-    public function setAdministrateur(bool $administrateur): void
-    {
-        $this->administrateur = $administrateur;
-    }
 
     /**
      * @return bool
@@ -271,15 +230,20 @@ class Participants
         $this->sitesNoSite = $sitesNoSite;
     }
 
-    public function getAdministrateur(): ?bool
-    {
-        return $this->administrateur;
-    }
-
     public function getActif(): ?bool
     {
         return $this->actif;
     }
 
+    public function getSalt()
+    {
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
+        // $this->password = '';
+        return null;
+    }
 
 }

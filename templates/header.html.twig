@@ -1,23 +1,29 @@
+<html lang="fr">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Sortir.com</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-        </ul>
-        <div class="form-inline my-2 my-lg-0">
-            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Déconnexion</button>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <img src="{{ asset('img/sortir.png') }}" style="width:8rem;" alt="sortir logo">
         </div>
+        {% if app.user %}
+            {% if is_granted('ROLE_ADMIN', 'ROLE_USER') %}
+                <ul class="nav navbar-nav navbar-right">
+                <li class="btn btn-outline-primary my-2 my-sm-0">
+                    <a class="text-white" href="../../accueil">Accueil</a>
+                </li>
+                <li class="btn btn-outline-success my-2 my-sm-0" style="margin-left:0.5rem; margin-right:0.5rem;">
+                    <a class="text-white" href="../../profil">Mon Profil</a>
+                </li>
+                <li class="btn btn-outline-danger my-2 my-sm-0">
+                    <a class="text-white" href="{{ path('user_logout') }}">Déconnexion</a>
+                </li>
+            {% endif %}
+            </ul>
+        {% else %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="btn btn-outline-success my-2 my-sm-0"><a class="text-white" href="{{ path('user_login') }}">Connexion</a>
+                </li>
+            </ul>
+        {% endif %}
     </div>
 </nav>

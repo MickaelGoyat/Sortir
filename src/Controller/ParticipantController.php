@@ -5,10 +5,10 @@ use App\Form\ParticipantType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Participants;
 use App\Entity\Sites;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class ParticipantController extends AbstractController
 {
@@ -42,20 +42,18 @@ class ParticipantController extends AbstractController
 
         return $this->render('participant/update.html.twig', ["participant" => $participant]
         );
-
-
     }
     /**
      * @Route ("/participant/add", name="participants_add")
      */
-
-    public function add (EntityManagerInterface $em, Request $request){
+    public function add (EntityManagerInterface $em, Request $request, UserPasswordEncoderInterface $encoder,){
 
         $participant = new Participants();
         $participantForm = $this->createForm(ParticipantType::class, $participant);
 
         $participantForm->handleRequest($request);
         if ($participantForm->isSubmitted() && $participantForm->isValid()){
+            $participant->setPassword($encoder->encodePassword($participant, $participant->getPassword()));
             $em->persist($participant);
             $em->flush();
             $this->addFlash('success','Le participant à été ajouté!');

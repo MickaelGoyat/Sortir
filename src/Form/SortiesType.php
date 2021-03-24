@@ -16,7 +16,6 @@ class SortiesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('noSortie', IntegerType::class)
             ->add('nom', TextType::class)
             ->add('datedebut', DateType::class )
             ->add('datecloture', DateType::class)

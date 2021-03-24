@@ -1,0 +1,74 @@
+Index: src/Controller/ParticipantController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\nnamespace App\\Controller;\r\n\r\nuse App\\Form\\ParticipantType;\r\nuse Doctrine\\ORM\\EntityManagerInterface;\r\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\r\nuse Symfony\\Component\\HttpFoundation\\Request;\r\nuse Symfony\\Component\\HttpFoundation\\Response;\r\nuse Symfony\\Component\\Routing\\Annotation\\Route;\r\nuse App\\Entity\\Participants;\r\nuse App\\Entity\\Sites;\r\n\r\nclass ParticipantController extends AbstractController\r\n{\r\n    /**\r\n     * @Route(\"/participant\", name=\"participant\")\r\n     */\r\n    public function index()\r\n    {\r\n        $participantRepo = $this->getDoctrine()->getRepository(Participants::class);\r\n        $participants = $participantRepo->findAll();\r\n        $siteRepo = $this->getDoctrine()->getRepository(Sites::class);\r\n        $sites = $siteRepo->findAll();\r\n\r\n        return $this->render('participant/create.html.twig', [\r\n            'participants' => $participants,\r\n            'sites' => $sites,\r\n        ]);\r\n    }\r\n\r\n    /**\r\n     * @Route(\"/{noParticipant}\", name=\"_modifier\",\r\n     *  requirements={\"noParticipant\" : \"\\d+\"},\r\n     *  methods={\"GET\"})\r\n     */\r\n\r\n    public function modifier($noParticipant, Request $request){\r\n\r\n\r\n        $participantRepo = $this->getDoctrine()->getRepository(Participants::class);\r\n        $participant = $participantRepo->find($noParticipant);\r\n\r\n        return $this->render('participant/update.html.twig', [\"participant\" => $participant]\r\n        );\r\n\r\n\r\n    }\r\n    /**\r\n     * @Route (\"/add\", name=\"participants_add\")\r\n     */\r\n\r\n    public function add (EntityManagerInterface $em, Request $request){\r\n\r\n        $participant = new Participants();\r\n        $participantForm = $this->createForm(ParticipantType::class, $participant);\r\n\r\n        $participantForm->handleRequest($request);\r\n        if ($participantForm->isSubmitted() && $participantForm->isValid()){\r\n            $em->persist($participant);\r\n            $em->flush();\r\n            $this->addFlash('success','Le participant à été ajouté!');\r\n            return $this->redirectToRoute('participant',\r\n                ['$noParticipant'=> $participant->getNoParticipant()\r\n                ]);\r\n\r\n        }\r\n        return $this->render('participant/add.html.twig' ,[\r\n            \"participantForm\" => $participantForm->createView()\r\n        ]);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Controller/ParticipantController.php b/src/Controller/ParticipantController.php
+--- a/src/Controller/ParticipantController.php	(revision 2644690b450f491672b4510e17d7e1fcbc07b935)
++++ b/src/Controller/ParticipantController.php	(date 1616519933656)
+@@ -46,7 +46,7 @@
+ 
+     }
+     /**
+-     * @Route ("/add", name="participants_add")
++     * @Route ("/participant/add", name="participants_add")
+      */
+ 
+     public function add (EntityManagerInterface $em, Request $request){
+Index: templates/participant/create.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{% include 'base.html.twig' %}\r\n{% block body %}\r\n    <title>Liste des participants</title>\r\n    <h1>Liste des participants</h1>\r\n    <table id=\"participantTable\"  border=\"1px\" style=\"width:100%\">\r\n        <tr>\r\n            <th scope=\"col\">id</th>\r\n            <th scope=\"col\">Pseudo</th>\r\n            <th scope=\"col\">Prénom</th>\r\n            <th scope=\"col\">Nom</th>\r\n            <th scope=\"col\">Téléphone</th>\r\n            <th scope=\"col\">E-mail</th>\r\n            <th scope=\"col\">Site de Rattachement</th>\r\n\r\n        </tr>\r\n        {% for participant in participants %}\r\n        <div class=\"participant\">\r\n            <tr>\r\n                <td> {{ participant.noParticipant }}</td>\r\n                <td> {{ participant.username }}</td>\r\n                <td> {{ participant.prenom }}</td>\r\n                <td> {{ participant.nom }}</td>\r\n                <td> {{ participant.telephone }}</td>\r\n                <td> {{ participant.mail }}</td>\r\n                <td> {{ participant.sitesNoSite }}</td>\r\n                <td><a href=\"{{ path('_modifier' , {'noParticipant' : participant.noParticipant }) }}\"> Modifier </a></td>\r\n            </tr>\r\n\r\n\r\n            {% endfor %}\r\n        </div>\r\n\r\n    </table>\r\n    <a href=\"{{ 'add'  }}\">Ajout participant</a>\r\n{% endblock %}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/participant/create.html.twig b/templates/participant/create.html.twig
+--- a/templates/participant/create.html.twig	(revision 2644690b450f491672b4510e17d7e1fcbc07b935)
++++ b/templates/participant/create.html.twig	(date 1616520273551)
+@@ -1,19 +1,23 @@
+ {% include 'base.html.twig' %}
+ {% block body %}
+     <title>Liste des participants</title>
+-    <h1>Liste des participants</h1>
+-    <table id="participantTable"  border="1px" style="width:100%">
++    <h1 class="text-center" style="margin-top:2rem;">Liste des participants</h1>
++    <div class="container">
++    <table id="participantTable" class="table table-bordered">
++        <thead class="thead-dark">
+         <tr>
+-            <th scope="col">id</th>
++            <th scope="col">Id</th>
+             <th scope="col">Pseudo</th>
+             <th scope="col">Prénom</th>
+             <th scope="col">Nom</th>
+             <th scope="col">Téléphone</th>
+             <th scope="col">E-mail</th>
+             <th scope="col">Site de Rattachement</th>
+-
++            <th></th>
+         </tr>
+-        {% for participant in participants %}
++        </thead>
++        <tbody>
++         {% for participant in participants %}
+         <div class="participant">
+             <tr>
+                 <td> {{ participant.noParticipant }}</td>
+@@ -25,11 +29,10 @@
+                 <td> {{ participant.sitesNoSite }}</td>
+                 <td><a href="{{ path('_modifier' , {'noParticipant' : participant.noParticipant }) }}"> Modifier </a></td>
+             </tr>
+-
+-
+             {% endfor %}
+         </div>
+-
++        </tbody>
+     </table>
+-    <a href="{{ 'add'  }}">Ajout participant</a>
++    <a class="btn btn-primary" href="{{ 'participant/add'  }}">Ajout d'un participant</a>
++    {% include 'footer.html.twig' %}
+ {% endblock %}
+\ No newline at end of file

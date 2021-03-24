@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="add sorties and annotations in composer" />
-    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Update registration form" />
-    <change afterPath="$PROJECT_DIR$/src/Form/SortiesType.php" afterDir="false" />
-    <change afterPath="$PROJECT_DIR$/templates/sorties/sorties.html.twig" afterDir="false" />
-    <change beforePath="$PROJECT_DIR$/.idea/Sortir.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sortir.iml" afterDir="false" />
-    <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Create first route test"/>
-    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Création d'un participant, modif sur des champs qui sont nullable, etc etc">
+    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="add sorties and annotations in composer">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_03_2021_14_47_[Default_Changelist]1/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_03_2021_14_47__Default_Changelist_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -296,14 +288,6 @@
       <option name="project" value="LOCAL" />
       <updated>1616504249183</updated>
     </task>
-    <task id="LOCAL-00013" summary="add sorties and annotations in composer">
-      <created>1616514182396</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1616514182396</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
     <task id="LOCAL-00013" summary="Création d'un participant, modif sur des champs qui sont nullable, etc etc">
       <created>1616516473212</created>
       <option name="number" value="00013" />
@@ -311,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616516473212</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Supprimer un participant">
+      <created>1616625345149</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1616625345149</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,9 +332,9 @@
     <MESSAGE value="[Feature] Add header/footer + Login page + Bootstrap 4 add in all pages + add profiler and debug-pack in composer for patch the double auth in others pages." />
     <MESSAGE value="Update registration form" />
     <MESSAGE value="add sorties and annotations in composer" />
-    <option name="LAST_COMMIT_MESSAGE" value="add sorties and annotations in composer" />
     <MESSAGE value="Création d'un participant, modif sur des champs qui sont nullable, etc etc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Création d'un participant, modif sur des champs qui sont nullable, etc etc" />
+    <MESSAGE value="Supprimer un participant" />
+    <option name="LAST_COMMIT_MESSAGE" value="Supprimer un participant" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

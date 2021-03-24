@@ -13,7 +13,8 @@
             <th scope="col">Téléphone</th>
             <th scope="col">E-mail</th>
             <th scope="col">Site de Rattachement</th>
-            <th></th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
         </tr>
         </thead>
         <tbody>
@@ -28,6 +29,7 @@
                 <td> {{ participant.mail }}</td>
                 <td> {{ participant.sitesNoSite }}</td>
                 <td><a href="{{ path('_modifier' , {'noParticipant' : participant.noParticipant }) }}"> Modifier </a></td>
+                <td><a href="{{ path('_delete' , {'noParticipant' : participant.noParticipant }) }}"> Supprimer </a></td>
             </tr>
             {% endfor %}
         </div>

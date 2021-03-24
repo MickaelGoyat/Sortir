@@ -66,4 +66,28 @@ class ParticipantController extends AbstractController
             "participantForm" => $participantForm->createView()
         ]);
     }
+
+    /**
+     * @Route("/delete/{noParticipant}", name="_delete",
+     *  requirements={"noParticipant" : "\d+"},
+     *  methods={"GET","POST"})
+     */
+
+    public function delete($noParticipant, Request $request, EntityManagerInterface $em){
+
+
+        $participantRepo = $this->getDoctrine()->getRepository(Participants::class);
+
+        $participant = $participantRepo->find($noParticipant);
+
+        $em->remove($participant);
+
+        $em->flush();
+
+        return $this->render(
+            'participant/delete.html.twig');
+
+
+
+    }
 }

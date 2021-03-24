@@ -1,0 +1,23 @@
+Index: src/Controller/LieuxController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Controller;\r\n\r\nuse App\\Entity\\Lieux;\r\nuse App\\Entity\\PropertySearch;\r\nuse App\\Form\\LieuType;\r\nuse App\\Form\\PropertySearchType;\r\nuse Doctrine\\ORM\\EntityManagerInterface;\r\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\r\nuse Symfony\\Component\\HttpFoundation\\Request;\r\nuse Symfony\\Component\\Routing\\Annotation\\Route;\r\n\r\n/**\r\n * @Route(\"/lieux\", name=\"lieux\")\r\n */\r\nclass LieuxController extends AbstractController\r\n{\r\n    /**\r\n     * @Route(\"/\", name=\"lieux\")\r\n     */\r\n    public function list(Request $request)\r\n    {\r\n        $search = new PropertySearch();\r\n        $form = $this->createForm(PropertySearchType::class , $search);\r\n        $form->handleRequest($request);\r\n        $lieuRepo = $this->getDoctrine()->getRepository(Lieux::class);\r\n        if ($form->isSubmitted() and $form->isValid()) {\r\n            $lieux = $lieuRepo->findByNom($search);\r\n        }\r\n        else{\r\n            $lieux = $lieuRepo->findAll();\r\n\r\n        }\r\n\r\n        return $this->render(\r\n            \"lieux/index.html.twig\",\r\n            [\r\n                \"lieux\" => $lieux,\r\n                'form' => $form ->createView()\r\n            ]\r\n\r\n        );\r\n    }\r\n\r\n    /**\r\n     * @Route(\"/{noLieu}\", name=\"_modifier\",\r\n     *  requirements={\"noLieu\" : \"\\d+\"},\r\n     *  methods={\"GET\",\"POST\"})\r\n     */\r\n    public function modifier($noLieu, Request $request, EntityManagerInterface $em)\r\n    {\r\n        $lieuRepo = $this->getDoctrine()->getRepository(Lieux::class);\r\n        $lieu = $lieuRepo->find($noLieu);\r\n        $lieuForm = $this->createForm(LieuType::class, $lieu);\r\n        //dd($request->request->all());\r\n        $lieuForm->handleRequest($request);\r\n        if ($lieuForm->isSubmitted()) {\r\n            $em->persist($lieu);\r\n            $em->flush();\r\n            $this->addFlash('success', 'Le lieu à été sauvegardé!');\r\n\r\n            return $this->redirectToRoute(\r\n                'lieuxlieux'\r\n\r\n            );\r\n        }\r\n\r\n            return $this->render(\r\n                'lieux/modifier.html.twig',\r\n                [\"lieu\" => $lieu, \"lieuForm\" => $lieuForm->createView()]\r\n            );\r\n    }\r\n\r\n\r\n    /**\r\n     * @Route (\"/add\", name=\"lieux_add\")\r\n     */\r\n    public function add(EntityManagerInterface $em, Request $request)\r\n    {\r\n        $lieu = new Lieux();\r\n        $lieuForm = $this->createForm(LieuType::class, $lieu);\r\n\r\n        $lieuForm->handleRequest($request);\r\n        if ($lieuForm->isSubmitted()) {\r\n            $em->persist($lieu);\r\n            $em->flush();\r\n            $this->addFlash('sucess', 'Le lieu à été sauvegarder!');\r\n            return $this->redirectToRoute('lieux_modifier',\r\n                ['noLieu' => $lieu->getNoLieu()]);\r\n        }\r\n        return $this->render('lieux/add.html.twig', [\r\n            \"lieuForm\" => $lieuForm->createView()\r\n        ]);\r\n    }\r\n\r\n\r\n    /**\r\n     * @Route(\"/delete/{noLieu}\", name=\"_delete\",\r\n     *  requirements={\"noLieu\" : \"\\d+\"},\r\n     *  methods={\"GET\",\"POST\"})\r\n     */\r\n\r\n    public function delete($noLieu, Request $request, EntityManagerInterface $em){\r\n\r\n\r\n        $lieuRepo = $this->getDoctrine()->getRepository(Lieux::class);\r\n\r\n        $lieu = $lieuRepo->find($noLieu);\r\n\r\n        $em->remove($lieu);\r\n\r\n        $em->flush();\r\n\r\n        return $this->render(\r\n            'lieux/delete.html.twig');\r\n\r\n\r\n\r\n    }\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Controller/LieuxController.php b/src/Controller/LieuxController.php
+--- a/src/Controller/LieuxController.php	(revision 907e387e54b8ff3eeae25c7c86e77849503499a0)
++++ b/src/Controller/LieuxController.php	(date 1616594524982)
+@@ -66,10 +66,8 @@
+             );
+         }
+ 
+-            return $this->render(
+-                'lieux/modifier.html.twig',
+-                ["lieu" => $lieu, "lieuForm" => $lieuForm->createView()]
+-            );
++
++
+     }
+ 
+ 

@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\LieuxRepository;
 
 /**
  * Lieux
  *
  * @ORM\Table(name="lieux", indexes={@ORM\Index(name="lieux_villes_fk", columns={"villes_no_ville"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=LieuxRepository::class)
  */
 class Lieux
 {

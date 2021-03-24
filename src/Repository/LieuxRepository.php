@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Lieux;
+use App\Entity\PropertySearch;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
@@ -17,6 +18,20 @@ class LieuxRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Lieux::class);
+    }
+
+    public function findByNom(PropertySearch $search) {
+
+
+        if ($search->getNom()){
+
+
+            $query =$this->createQueryBuilder('n')->where('n.nomLieu = :nom ');
+            $query->setParameter('nom',$search->getNom());
+            return $query->getQuery()->getArrayResult();
+        }
+
+        return null;
     }
 
     // /**

@@ -46,7 +46,7 @@ class ParticipantController extends AbstractController
 
     }
     /**
-     * @Route ("/add", name="participants_add")
+     * @Route ("/participant/add", name="participants_add")
      */
 
     public function add (EntityManagerInterface $em, Request $request){

@@ -2,6 +2,18 @@
 {% block body %}
     <title>Liste des lieux</title>
     <h1 class="text-center" style="margin-top:2rem;">Liste des lieux</h1>
+
+    <div class ="jumbotron">
+    {{ form_start(form)}}
+    <div class="form-row">
+        <div class="col">
+            {{ form_row(form.nom) }}
+        </div>
+        <div class="col">
+            <button class="btn-primary">Recherche</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
     <div class="container">
     <table class="table table-bordered">
         <thead class="thead-dark">
@@ -28,6 +40,8 @@
                 <td>
                     <a class="text-center" href="{{ path('lieux_modifier' , {'noLieu' : lieu.noLieu }) }}">
                         Modifier un lieu </a>
+                    <a href="{{ path('lieux_delete' , {'noLieu' : lieu.noLieu }) }}">
+                        Supprimer</a>
                 </td>
             </tr>
             {% endfor %}

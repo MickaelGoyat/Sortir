@@ -1,18 +1,42 @@
-{% block body %}
-    <title>Welcome to Symfony!</title>
+{% include 'base.html.twig' %}
 
-    <table id="lieuTable"  border="1px" style="width:100%">
+{% block body %}
+
+    <title>Liste des sites</title>
+    <h1>Liste des Sites</h1>
+    <div class ="jumbotron">
+    {{ form_start(form)}}
+    <div class="form-row">
+        <div class="col">
+            {{ form_row(form.nom) }}
+        </div>
+        <div class="col">
+            <button class="btn-primary">Recherche</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+    <table id="siteTable"  border="1px" style="width:100%">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Nom du Sites</th>
+            <th scope="col">Nom du site</th>
+            <th scope="col">ACTION</th>
         </tr>
         {% for site in sites %}
         <div class="site">
             <tr>
                 <td> {{ site.noSite }}</td>
                 <td> {{ site.nomSite }}</td>
+                <td><a href="{{ path('sites_modifier' , {'noSite' : site.noSite }) }}"> Modifier </a><a href="{{ path('sites_delete' , {'noSite' : site.noSite }) }}">Supprimer</a></td>
             </tr>
+
+
             {% endfor %}
         </div>
+
     </table>
+    <a href="{{ 'add'  }}">Ajout lieu</a>
+
+    <div class="site">
+
+
 {% endblock %}

@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\SitesRepository;
 
 /**
  * Sites
  *
  * @ORM\Table(name="sites")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=SitesRepository::class)
  */
 class Sites
 {

@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\PropertySearch;
 use App\Entity\Sites;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -26,6 +27,20 @@ class SitesRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
             ;
+    }
+
+    public function findByNom(PropertySearch $search) {
+
+
+        if ($search->getNom()){
+
+
+            $query =$this->createQueryBuilder('n')->where('n.nomSite = :nom ');
+            $query->setParameter('nom',$search->getNom());
+            return $query->getQuery()->getArrayResult();
+        }
+
+        return null;
     }
 
     // /**

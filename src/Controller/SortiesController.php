@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+
 use App\Entity\Sorties;
 use App\Form\SortiesType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -72,5 +73,29 @@ class SortiesController extends AbstractController
         return $this->render('sorties/add.sorties.html.twig', [
             "sortiesForm" => $sortiesForm->createView()
         ]);
+    }
+
+    /**
+     * @Route("/delete/{noSortie}", name="_delete",
+     *  requirements={"noSortie" : "\d+"},
+     *  methods={"GET","POST"})
+     */
+
+    public function delete($noSortie, Request $request, EntityManagerInterface $em){
+
+
+        $sortieRepo = $this->getDoctrine()->getRepository(Sorties::class);
+
+        $sortie = $sortieRepo->find($noSortie);
+
+        $em->remove($sortie);
+
+        $em->flush();
+
+        return $this->render(
+            'sortie/delete.sorties.html.twig');
+
+
+
     }
 }

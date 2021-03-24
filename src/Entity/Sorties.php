@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\SortiesRepository;
 
 /**
  * Sorties
  *
  * @ORM\Table(name="sorties", indexes={@ORM\Index(name="sorties_etats_fk", columns={"etats_no_etat"}), @ORM\Index(name="sorties_lieux_fk", columns={"lieux_no_lieu"}), @ORM\Index(name="sorties_participants_fk", columns={"organisateur"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=SortiesRepository::class)
  */
 class Sorties
 {

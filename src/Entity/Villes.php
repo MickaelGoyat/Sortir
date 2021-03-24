@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\VillesRepository;
 
 /**
  * Villes
  *
  * @ORM\Table(name="villes")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=VillesRepository::class)
  */
 class Villes
 {
@@ -34,6 +35,54 @@ class Villes
      * @ORM\Column(name="code_postal", type="string", length=10, nullable=false)
      */
     private $codePostal;
+
+    /**
+     * @return int
+     */
+    public function getNoVille(): int
+    {
+        return $this->noVille;
+    }
+
+    /**
+     * @param int $noVille
+     */
+    public function setNoVille(int $noVille): void
+    {
+        $this->noVille = $noVille;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNomVille(): string
+    {
+        return $this->nomVille;
+    }
+
+    /**
+     * @param string $nomVille
+     */
+    public function setNomVille(string $nomVille): void
+    {
+        $this->nomVille = $nomVille;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCodePostal(): string
+    {
+        return $this->codePostal;
+    }
+
+    /**
+     * @param string $codePostal
+     */
+    public function setCodePostal(string $codePostal): void
+    {
+        $this->codePostal = $codePostal;
+    }
 
 
 }

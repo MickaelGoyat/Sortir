@@ -1,0 +1,36 @@
+{% include 'base.html.twig' %}
+{% block body %}
+    <title>Liste des villes</title>
+    <h1 class="text-center" style="margin-top:2rem;">Liste des villes</h1>
+    <div class="container">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">N°</th>
+                <th scope="col">Nom de la ville</th>
+                <th scope="col">Code postal ville</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ville in villes %}
+            <div class="sorties">
+                <tr>
+                    <td> {{ ville.noVille }}</td>
+                    <td> {{ ville.nomVille }}</td>
+                    <td> {{ ville.codePostal }}</td>
+                    <td>
+                        <a class="text-center" href="{{ path('villes_modifier', {'noVille' : ville.noVille }) }}">
+                            Modifier une sortie </a>
+                        <a href="{{ path('villes_delete' , {'noVille' : ville.noVille }) }}">Supprimer</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </div>
+            </tbody>
+        </table>
+        <a class="btn btn-primary" style="margin-bottom:1rem;" href="{{ 'add' }}">Ajouter une ville</a>
+    </div>
+    <div class="sorties">
+    {% include 'footer.html.twig' %}
+{% endblock %}

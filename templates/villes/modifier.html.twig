@@ -1,0 +1,20 @@
+{% include 'base.html.twig' %}
+
+
+
+<div>
+
+    <h1>Modification de la ville : </h1>
+
+    Numéro de la ville: {{ ville.noVille }}<br>
+    Nom de la ville :{{ ville.nomVille }}<br><br>
+
+
+    {{ form_start(villeForm) }}
+    {{ form_widget(villeForm) }}
+    <button type="submit">Send</button>
+
+    {{ form_end(villeForm) }}
+
+    <td><a href="{{ path('villesvilles') }}"> <h1>Revenir à la liste des villes</h1> </a></td>
+</div>

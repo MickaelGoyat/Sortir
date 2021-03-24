@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\PropertySearch;
 use App\Entity\Villes;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -17,6 +18,20 @@ class VillesRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Villes::class);
+    }
+
+    public function findByNom(PropertySearch $search) {
+
+
+        if ($search->getNom()){
+
+
+            $query =$this->createQueryBuilder('n')->where('n.nomSite = :nom ');
+            $query->setParameter('nom',$search->getNom());
+            return $query->getQuery()->getArrayResult();
+        }
+
+        return null;
     }
 
     // /**

@@ -30,6 +30,7 @@
                     <td>
                         <a class="text-center" href="{{ path('sorties_modifier', {'noSortie' : sortie.noSortie }) }}">
                             Modifier une sortie </a>
+                        <a href="{{ path('sorties_delete' , {'noSortie' : sortie.noSortie }) }}">Supprimer</a>
                     </td>
                 </tr>
                 {% endfor %}

@@ -21,7 +21,6 @@ class SortiesController extends AbstractController
     {
         $sortiesRepo = $this->getDoctrine()->getRepository(Sorties::class);
         $sorties = $sortiesRepo->findAll();
-        dump($sorties);
 
         return $this->render("sorties/sorties.html.twig", [
             "sorties" => $sorties
@@ -31,14 +30,29 @@ class SortiesController extends AbstractController
     /**
      * @Route("/{noSortie}", name="_modifier",
      *  requirements={"noSortie" : "\d+"},
-     *  methods={"GET"})
+     *  methods={"GET", "POST"})
      */
-    public function modifier($noSortie, Request $request)
+    public function modifier($noSortie, Request $request, EntityManagerInterface $em)
     {
         $sortiesRepo = $this->getDoctrine()->getRepository(Sorties::class);
         $sorties = $sortiesRepo->find($noSortie);
 
-        return $this->render('sorties/modifier.html.twig', ["sorties" => $sorties]);
+        $sortiesForm = $this->createForm(SortiesType::class, $sorties);
+        $sortiesForm->handleRequest($request);
+        if ($sortiesForm->isSubmitted()) {
+            $em->persist($sorties);
+            $em->flush();
+            $this->addFlash('success', 'Le lieu à été sauvegardé!');
+
+            return $this->redirectToRoute(
+                'sortiessorties'
+
+            );
+        }
+        return $this->render(
+            'sorties/modifier.sorties.html.twig',
+            ["sorties" => $sorties, "sortiesForm" => $sortiesForm->createView()]
+        );
     }
 
     /**
@@ -53,12 +67,10 @@ class SortiesController extends AbstractController
             $em->persist($sorties);
             $em->flush();
             $this->addFlash('sucess', 'La sortie à été sauvegarder!');
-            return $this->redirectToRoute('sorties_modifier',
-                ['$sorties' => $sorties->getNoSortie()]);
+            return $this->redirectToRoute('sortiessorties');
         }
         return $this->render('sorties/add.sorties.html.twig', [
             "sortiesForm" => $sortiesForm->createView()
         ]);
     }
-
 }

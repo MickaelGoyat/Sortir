@@ -1,0 +1,21 @@
+{% include 'base.html.twig' %}
+
+<div>
+    <h1>Modification d'une sortie : </h1>
+    <table border="1px">
+        <td> {{ sorties.noSortie }}</td>
+        <td> {{ sorties.nom }}</td>
+        <td> {{ sorties.datedebut|date("m/d/Y") }}</td>
+        <td> {{ sorties.datecloture|date("m/d/Y") }}</td>
+        <td> {{ sorties.nbinscriptionsmax }}</td>
+        <td> {{ sorties.duree }}</td>
+        <td> {{ sorties.descriptioninfos }}</td>
+    </table>
+
+    {{ form_start(sortiesForm) }}
+    {{ form_widget(sortiesForm) }}
+    <button type="submit">Send</button>
+
+    {{ form_end(sortiesForm) }}
+    <td><a href="{{ path('sortiessorties') }}"> Liste des sorties </a></td>
+</div>

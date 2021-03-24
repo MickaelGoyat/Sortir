@@ -86,8 +86,7 @@ class LieuxController extends AbstractController
             $em->persist($lieu);
             $em->flush();
             $this->addFlash('sucess', 'Le lieu à été sauvegarder!');
-            return $this->redirectToRoute('lieux_modifier',
-                ['noLieu' => $lieu->getNoLieu()]);
+            return $this->redirectToRoute('lieux_lieux');
         }
         return $this->render('lieux/add.html.twig', [
             "lieuForm" => $lieuForm->createView()

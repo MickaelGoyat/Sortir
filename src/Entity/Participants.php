@@ -45,7 +45,7 @@ class Participants implements UserInterface
 
     public function __construct()
     {
-        $this->roles = [ 'ROLE_USER' ];
+        $this->roles = ['ROLE_USER'];
     }
 
     /**
@@ -190,7 +190,7 @@ class Participants implements UserInterface
         return $this;
     }
 
-    public function getRoles() :iterable
+    public function getRoles(): iterable
     {
         return $this->roles;
     }

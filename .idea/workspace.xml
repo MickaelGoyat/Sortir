@@ -5,25 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="add/update sorties and encode password -&gt; ParticipantController.php and update footer">
-      <change afterPath="$PROJECT_DIR$/templates/emails/activation.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/user/forgotten_password.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/user/reset_password.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Sortir.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sortir.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_03_2021_16_47__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_03_2021_16_47__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_03_2021_16_12_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_03_2021_16_12__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_03_2021_16_14_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_03_2021_16_14__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ParticipantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ParticipantController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SortiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SortiesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Lieux.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Lieux.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Participants.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Participants.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ParticipantsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ParticipantsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Sorties.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Sorties.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ParticipantType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ParticipantType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SortiesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SortiesType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/LieuxRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/LieuxRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/participant/create.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/participant/create.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sorties/sorties.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sorties/sorties.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/user/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/login.html.twig" afterDir="false" />
     <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="add sorties and annotations in composer">
@@ -329,7 +327,21 @@
       <option name="project" value="LOCAL" />
       <updated>1616625345149</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Update container =&gt; container-fluid Participants">
+      <created>1616665542523</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1616665542523</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add reset_password + account activation + web_profiler = false &#10;// activer si besoin d'activer un compte ou reset un mot de passe, interception des mails.">
+      <created>1616665703587</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1616665703587</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,7 +373,9 @@
     <MESSAGE value="add sorties and annotations in composer" />
     <MESSAGE value="Création d'un participant, modif sur des champs qui sont nullable, etc etc" />
     <MESSAGE value="Supprimer un participant" />
-    <option name="LAST_COMMIT_MESSAGE" value="Supprimer un participant" />
+    <MESSAGE value="Update container =&gt; container-fluid Participants" />
+    <MESSAGE value="Add reset_password + account activation + web_profiler = false &#10;// activer si besoin d'activer un compte ou reset un mot de passe, interception des mails." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add reset_password + account activation + web_profiler = false &#10;// activer si besoin d'activer un compte ou reset un mot de passe, interception des mails." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -17,7 +17,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ParticipantType extends AbstractType
 {
-    private $sitesRepository;
+    private SitesRepository $sitesRepository;
     public function __construct(SitesRepository $sitesRepository)
     {
         $this->sitesRepository = $sitesRepository;

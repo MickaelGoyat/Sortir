@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\SortiesRepository;
 
@@ -30,7 +31,7 @@ class Sorties
     private $nom;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="datedebut", type="date", nullable=false)
      */

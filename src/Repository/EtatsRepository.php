@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Etats;
+use App\Entity\PropertySearch;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
@@ -18,6 +19,29 @@ class EtatsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Etats::class);
     }
+
+    public function orderByNom()
+    {
+        return $this->createQueryBuilder('e')
+            ->orderBy('e.noEtat', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findByNom()
+    {
+
+
+        $query = $this->createQueryBuilder('n')
+            ->where('n.noEtat ');
+        ;
+
+        return $query->getQuery()->getArrayResult();
+    }
+
+
+
+
 
     // /**
     //  * @return Participant[] Returns an array of Participant objects
@@ -48,4 +72,5 @@ class EtatsRepository extends ServiceEntityRepository
     }
     */
 }
+
 ?>

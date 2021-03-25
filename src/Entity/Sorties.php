@@ -8,7 +8,7 @@ use App\Repository\SortiesRepository;
 /**
  * Sorties
  *
- * @ORM\Table(name="sorties", indexes={@ORM\Index(name="sorties_etats_fk", columns={"etats_no_etat"}), @ORM\Index(name="sorties_lieux_fk", columns={"lieux_no_lieu"}), @ORM\Index(name="sorties_participants_fk", columns={"organisateur"})})
+ * @ORM\Table(name="sorties", indexes={@ORM\Index(name="sorties_lieux_fk", columns={"lieux_no_lieu"}), @ORM\Index(name="sorties_participants_fk", columns={"organisateur"})})
  * @ORM\Entity(repositoryClass=SortiesRepository::class)
  */
 class Sorties
@@ -65,9 +65,8 @@ class Sorties
     private $descriptioninfos;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="etatsortie", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Etats", inversedBy="sorties")
+     * @ORM\JoinColumn(nullable=true, referencedColumnName="no_etat")
      */
     private $etatsortie;
 
@@ -92,12 +91,6 @@ class Sorties
      */
     private $lieuxNoLieu;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="etats_no_etat", type="integer", nullable=false)
-     */
-    private $etatsNoEtat;
 
     /**
      * @return int
@@ -212,19 +205,20 @@ class Sorties
     }
 
     /**
-     * @return int|null
+     * @return Etats|null
      */
-    public function getEtatsortie(): ?int
+
+    public function getEtatsortie(): ?Etats
     {
         return $this->etatsortie;
     }
 
     /**
-     * @param int|null $etatsortie
+     * @return Etats
      */
-    public function setEtatsortie(?int $etatsortie): void
+    public function setEtatsortie(Etats $etatsortie): Etats
     {
-        $this->etatsortie = $etatsortie;
+        return $this->etatsortie = $etatsortie;
     }
 
     /**
@@ -275,20 +269,5 @@ class Sorties
         $this->lieuxNoLieu = $lieuxNoLieu;
     }
 
-    /**
-     * @return int
-     */
-    public function getEtatsNoEtat(): int
-    {
-        return $this->etatsNoEtat;
-    }
-
-    /**
-     * @param int $etatsNoEtat
-     */
-    public function setEtatsNoEtat(int $etatsNoEtat): void
-    {
-        $this->etatsNoEtat = $etatsNoEtat;
-    }
 
 }

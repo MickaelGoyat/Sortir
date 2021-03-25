@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Etats
  *
@@ -26,8 +27,12 @@ class Etats
      * @ORM\Column(name="libelle", type="string", length=30, nullable=false)
      */
     private $libelle;
+/**
+  *  @ORM\OneToMany(targetEntity="App\Entity\Sorties", mappedBy="etatsorties")
+  * @ORM\JoinColumn(nullable=true, referencedColumnName="no_sorties")
+ */
 
-
+    private $sorties;
     public function getLibelle(): ?string
     {
         return $this->libelle;
@@ -39,4 +44,12 @@ class Etats
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->libelle;
+
+    }
+
+
 }

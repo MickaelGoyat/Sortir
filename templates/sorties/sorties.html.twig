@@ -13,6 +13,7 @@
                 <th scope="col">Nombres d'inscrits</th>
                 <th scope="col">Durée de la sortie</th>
                 <th scope="col">Descriptions et informations</th>
+                <th scope="col">Etat de la sortie</th>
                 <th></th>
             </tr>
             </thead>
@@ -27,10 +28,12 @@
                     <td> {{ sortie.nbinscriptionsmax }}</td>
                     <td> {{ sortie.duree }}</td>
                     <td> {{ sortie.descriptioninfos }}</td>
+                    <td> {{ sortie.etatsortie }}</td>
                     <td>
                         <a class="text-center" href="{{ path('sorties_modifier', {'noSortie' : sortie.noSortie }) }}">
                             Modifier une sortie </a>
                         <a href="{{ path('sorties_delete' , {'noSortie' : sortie.noSortie }) }}">Supprimer</a>
+                        <a href="{{ path('sorties_annuler' , {'noSortie' : sortie.noSortie }) }}">Annuler</a>
                     </td>
                 </tr>
                 {% endfor %}

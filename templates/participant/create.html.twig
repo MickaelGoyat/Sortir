@@ -1,40 +1,48 @@
 {% include 'base.html.twig' %}
-{% block body %}
-    <title>Liste des participants</title>
-    <h1 class="text-center" style="margin-top:2rem;">Liste des participants</h1>
-    <div class="container">
-    <table id="participantTable" class="table table-bordered">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Pseudo</th>
-            <th scope="col">Prénom</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Téléphone</th>
-            <th scope="col">E-mail</th>
-            <th scope="col">Site de Rattachement</th>
-            <th>Modifier</th>
-            <th>Supprimer</th>
-        </tr>
-        </thead>
-        <tbody>
-         {% for participant in participants %}
-        <div class="participant">
-            <tr>
-                <td> {{ participant.noParticipant }}</td>
-                <td> {{ participant.username }}</td>
-                <td> {{ participant.prenom }}</td>
-                <td> {{ participant.nom }}</td>
-                <td> {{ participant.telephone }}</td>
-                <td> {{ participant.mail }}</td>
-                <td> {{ participant.sitesNoSite }}</td>
-                <td><a href="{{ path('_modifier' , {'noParticipant' : participant.noParticipant }) }}"> Modifier </a></td>
-                <td><a href="{{ path('_delete' , {'noParticipant' : participant.noParticipant }) }}"> Supprimer </a></td>
-            </tr>
-            {% endfor %}
+    {% block body %}
+        <title>Liste des participants</title>
+        <h1 class="text-center" style="margin-top:2rem;">Liste des participants</h1>
+        <div class="container-fluid">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Pseudo</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Téléphone</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Site de Rattachement</th>
+                    <th scope="col">Modifier</th>
+                    <th scope="col">Supprimer</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for participant in participants %}
+                <div class="participant">
+                    <tr>
+                        <td> {{ participant.noParticipant }}</td>
+                        <td> {{ participant.username }}</td>
+                        <td> {{ participant.prenom }}</td>
+                        <td> {{ participant.nom }}</td>
+                        <td> {{ participant.telephone }}</td>
+                        <td> {{ participant.mail }}</td>
+                        <td> {{ participant.sitesNoSite }}</td>
+                        <td>
+                            <a href="{{ path('_modifier' , {'noParticipant' : participant.noParticipant }) }}">
+                                Modifier </a>
+                        </td>
+                        <td>
+                            <a href="{{ path('_delete' , {'noParticipant' : participant.noParticipant }) }}">
+                                Supprimer </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </div>
+                </tbody>
+            </table>
         </div>
-        </tbody>
-    </table>
-    <a class="btn btn-primary" href="{{ 'participant/add'  }}">Ajout d'un participant</a>
-    {% include 'footer.html.twig' %}
-{% endblock %}
+        <div class="participant">
+        <a class="btn btn-primary" href="{{ 'participant/add' }}">Ajout d'un participant</a>
+        {% include 'footer.html.twig' %}
+    {% endblock %}

@@ -9,6 +9,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 /**
  * @method Participants|null find($id, $lockMode = null, $lockVersion = null)
  * @method Participants|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Participants|null findByOneEmail($mail)
  * @method Participants[]    findAll()
  * @method Participants[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
@@ -47,5 +48,6 @@ class ParticipantsRepository extends ServiceEntityRepository
         ;
     }
     */
+
 }
 ?>

@@ -1,5 +1,20 @@
 {% include 'base.html.twig' %}
 {% block body %}
+    {% for message in app.flashes('message') %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('warning') %}
+        <div class="alert alert-warning" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('danger') %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
     {% if loginError %}
         <div>{{ loginError.messageKey|trans(loginError.messageData, 'security') }}</div>
     {% endif %}
@@ -39,9 +54,15 @@
                                                 <label>
                                                     <input type="checkbox" name="_remember_me">Se souvenir de moi
                                                 </label>
+                                                <br/>
+                                                <label>
+                                                    <a href="{{ url('forgotten_password') }}">Mot de passe oublié ?
+                                                    </a>
+                                                </label>
                                             </div>
                                             <div class="text-center">
-                                                <input type="hidden" name="_target_path" value="{{ url('after_login_route_name') }}"/>
+                                                <input type="hidden" name="_target_path"
+                                                       value="{{ url('after_login_route_name') }}"/>
                                                 <input type="submit" class="btn btn-success btn-lg" name="Connexion">
                                             </div>
                                         </form>

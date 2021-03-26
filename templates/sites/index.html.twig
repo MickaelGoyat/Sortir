@@ -1,42 +1,36 @@
 {% include 'base.html.twig' %}
-
 {% block body %}
-
     <title>Liste des sites</title>
-    <h1>Liste des Sites</h1>
-    <div class ="jumbotron">
-    {{ form_start(form)}}
-    <div class="form-row">
-        <div class="col">
-            {{ form_row(form.nom) }}
-        </div>
-        <div class="col">
-            <button class="btn-primary">Recherche</button>
-        </div>
-        {{ form_end(form) }}
-    </div>
-    <table id="siteTable"  border="1px" style="width:100%">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nom du site</th>
-            <th scope="col">ACTION</th>
-        </tr>
-        {% for site in sites %}
-        <div class="site">
+    <h1 class="text-center" style="margin-top:2rem;">Liste des sites</h1>
+    <div class="container">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
             <tr>
-                <td> {{ site.noSite }}</td>
-                <td> {{ site.nomSite }}</td>
-                <td><a href="{{ path('sites_modifier' , {'noSite' : site.noSite }) }}"> Modifier </a><a href="{{ path('sites_delete' , {'noSite' : site.noSite }) }}">Supprimer</a></td>
+                <th scope="col">#</th>
+                <th scope="col">Nom du site</th>
+                <th scope="col">ACTION</th>
+                <th></th>
             </tr>
-
-
-            {% endfor %}
-        </div>
-
-    </table>
-    <a href="{{ 'add'  }}">Ajout lieu</a>
-
-    <div class="site">
-
-
+            </thead>
+            <tbody>
+            {% for site in sites %}
+            <div class="sites">
+                <tr>
+                    <td> {{ site.noSite }}</td>
+                    <td> {{ site.nomSite }}</td>
+                    <td>
+                        <a href="{{ path('sites_modifier' , {'noSite' : site.noSite }) }}"> Modifier </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('sites_delete' , {'noSite' : site.noSite }) }}">Supprimer</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </div>
+            </tbody>
+        </table>
+        <a class="btn btn-primary" style="margin-bottom:1rem;" href="{{ 'add' }}">Ajout lieu</a>
+    </div>
+    <div class="sites">
+    {% include 'footer.html.twig' %}
 {% endblock %}

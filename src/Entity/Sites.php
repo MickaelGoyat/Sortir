@@ -20,7 +20,6 @@ class Sites
     {
     }
 
-
     /**
      * @return int
      */

@@ -1,16 +1,17 @@
 {% include 'base.html.twig' %}
-<div>
+<div class="container-fluid">
     <h1>Modification d'un Site : </h1>
-
-    Numéro du site: {{ site.noSite }}<br>
-    Nom du site :{{ site.nomSite }}<br><br>
-
+    <p>Numéro du site: <b>{{ site.noSite }}</b></p>
+    <p>Nom du site: <b>{{ site.nomSite }}</b></p>
 
     {{ form_start(siteForm) }}
     {{ form_widget(siteForm) }}
-    <button type="submit">Send</button>
-
+    <button class="btn btn-primary" type="submit">Send</button>
     {{ form_end(siteForm) }}
-
-    <td><a href="{{ path('sitessites') }}"> <h1>Revenir à la liste des sites</h1> </a></td>
+    <td>
+        <a href="{{ path('sitessites') }}">
+            <h3>Revenir à la liste des sites</h3>
+        </a>
+    </td>
 </div>
+{% include 'footer.html.twig' %}

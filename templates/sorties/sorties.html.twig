@@ -3,55 +3,53 @@
     <title>Liste des sorties</title>
     <h1 class="text-center" style="margin-top:2rem;">Liste des sorties</h1>
     <div class="container-fluid">
-        {% for sortie in sorties %}
-            <table class="table table-bordered table-sm">
-                <thead class="thead-dark">
+        <table class="table table-bordered table-sm">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">N°</th>
+                <th scope="col">Nom de la sortie</th>
+                <th scope="col">Date du début la sortie</th>
+                <th scope="col">Date cloture de la sortie</th>
+                <th scope="col">Nombres d'inscrits</th>
+                <th scope="col">Durée de la sortie</th>
+                <th scope="col">Descriptions et informations</th>
+                <th scope="col">Etat de la sortie</th>
+                <th>Inscription</th>
+                <th>Mise à jour</th>
+                <th>Suppression</th>
+                <th>Annulation</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for sortie in sorties %}
+            <div class="sorties">
                 <tr>
-                    <th scope="col">N°</th>
-                    <th scope="col">Nom de la sortie</th>
-                    <th scope="col">Date du début la sortie</th>
-                    <th scope="col">Date cloture de la sortie</th>
-                    <th scope="col">Nombres d'inscrits</th>
-                    <th scope="col">Durée de la sortie</th>
-                    <th scope="col">Descriptions et informations</th>
-                    <th scope="col">Etat de la sortie</th>
-                    <th>Inscription</th>
-                    <th>Mise à jour</th>
-                    <th>Suppression</th>
-                    <th>Annulation</th>
+                    <td> {{ sortie.noSortie }}</td>
+                    <td> {{ sortie.nom }}</td>
+                    <td> {{ sortie.datedebut|date("m/d/Y") }}</td>
+                    <td> {{ sortie.datecloture|date("m/d/Y") }}</td>
+                    <td> {{ sortie.nbinscriptionsmax }}</td>
+                    <td> {{ sortie.duree }}</td>
+                    <td> {{ sortie.descriptioninfos }}</td>
+                    <td> {{ sortie.etatsortie }}</td>
+                    <td>
+                    </td>
+                    <td>
+                        <a class="text-center"
+                           href="{{ path('sorties_modifier', {'noSortie' : sortie.noSortie }) }}">
+                            Modifier une sortie </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('sorties_delete' , {'noSortie' : sortie.noSortie }) }}">Supprimer</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('sorties_annuler' , {'noSortie' : sortie.noSortie }) }}">Annuler</a>
+                    </td>
                 </tr>
-                </thead>
-                <tbody>
-                <div class="sorties">
-                    <tr>
-                        <td> {{ sortie.noSortie }}</td>
-                        <td> {{ sortie.nom }}</td>
-                        <td> {{ sortie.datedebut|date("m/d/Y") }}</td>
-                        <td> {{ sortie.datecloture|date("m/d/Y") }}</td>
-                        <td> {{ sortie.nbinscriptionsmax }}</td>
-                        <td> {{ sortie.duree }}</td>
-                        <td> {{ sortie.descriptioninfos }}</td>
-                        <td> {{ sortie.etatsortie }}</td>
-                        <td>
-
-                        </td>
-                        <td>
-                            <a class="text-center"
-                               href="{{ path('sorties_modifier', {'noSortie' : sortie.noSortie }) }}">
-                                Modifier une sortie </a>
-                        </td>
-                        <td>
-                            <a href="{{ path('sorties_delete' , {'noSortie' : sortie.noSortie }) }}">Supprimer</a>
-                        </td>
-                        <td>
-                            <a href="{{ path('sorties_annuler' , {'noSortie' : sortie.noSortie }) }}">Annuler</a>
-                        </td>
-                    </tr>
-                </div>
-                </tbody>
-            </table>
-
-        {% endfor %}
+                {% endfor %}
+            </div>
+            </tbody>
+        </table>
         <a class="btn btn-primary" style="margin-bottom:1rem;" href="{{ 'add' }}">Ajouter une sortie</a>
     </div>
     <div class="sorties">

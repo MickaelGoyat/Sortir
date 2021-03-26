@@ -1,22 +1,56 @@
 {% include 'base.html.twig' %}
-<div>
 
-    <h1>{{ participant.username }} </h1>
-    <div>
-        <label for="prenom">Prénom : {{ participant.prenom }}</label>
+{% block main %}
+    <div class="d-flex container-fluid">
+        <form class="form-login form-group">
+            <h3>Mon profil</h3>
+            <!-- Username -->
+            <div class="row input-disabled">
+                <label for="username" class="col-sm-4 pr-1">Pseudo :</label>
+                <input type="text" class="col-sm-8 input-off" name="_username" id="username"
+                       value="{{ app.user.username }}" readonly>
+            </div>
+
+            <!-- Firstname -->
+            <div class="row input-disabled">
+                <label for="firstName" class="col-sm-4 pr-1">Prénom :</label>
+                <input type="text" class="col-sm-8 input-off" name="_firstName" id="firstName"
+                       value="{{ app.user.prenom }}" readonly>
+            </div>
+
+            <!-- Name -->
+            <div class="row input-disabled">
+                <label for="name" class="col-sm-4 pr-1">Nom :</label>
+                <input type="text" class="col-sm-8 input-off" name="_name" id="name" value="{{ app.user.nom }}"
+                       readonly>
+            </div>
+
+            <!-- PhoneNumber -->
+            <div class="row input-disabled">
+                <label for="phoneNumber" class="col-sm-4 pr-1">Téléphone :</label>
+                <input type="tel" class="col-sm-8 input-off" name="_phoneNumber" id="phoneNumber"
+                       value="{{ app.user.telephone }}"
+                       readonly>
+            </div>
+
+            <!-- Email -->
+            <div class="row input-disabled">
+                <label for="email" class="col-sm-4 pr-1">Email :</label>
+                <input type="email" class="col-sm-8 input-off" name="_email" id="email" value="{{ app.user.mail }}"
+                       readonly>
+            </div>
+
+
+            <!-- Buttons -->
+            <div class="row d-flex justify-content-center mt-3">
+                <!-- Update -->
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('_modifier' , {'noParticipant' : app.user.noParticipant }) }}">
+                        <button class="btn btn-lg btn-primary m-1" type="button">Modifier</button>
+                    </a>
+                {% endif %}
+            </div>
+        </form>
     </div>
-    <div>
-        <label for="nom">Nom : {{ participant.nom }}</label>
-    </div>
-    <div>
-        <label for="telephone">Téléphone : {{ participant.telephone }}</label>
-    </div>
-    <div>
-        <label for="email">Email : {{ participant.mail }}</label>
-    </div>
-    <div>
-        <label for="siteRattachement">Site de rattachement : {{ participant.sitesNoSite }}</label>
-    </div>
-    <a href="{{ path('_modifier' , {'noParticipant' : participant.noParticipant }) }}">
-        Modifier </a>
-</div>
+    {% include 'footer.html.twig' %}
+{% endblock %}

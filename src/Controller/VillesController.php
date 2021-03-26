@@ -30,16 +30,13 @@ class VillesController extends AbstractController
         }
         else{
             $villes = $villeRepo->findAll();
-
         }
-
         return $this->render(
             "villes/index.html.twig",
             [
                 "villes" => $villes,
                 'form' => $form ->createView()
             ]
-
         );
     }
 
@@ -48,7 +45,6 @@ class VillesController extends AbstractController
      *  requirements={"noVille" : "\d+"},
      *  methods={"GET","POST"})
      */
-
     public function modifier($noVille, Request $request, EntityManagerInterface $em)
     {
         $villeRepo = $this->getDoctrine()->getRepository(Villes::class);

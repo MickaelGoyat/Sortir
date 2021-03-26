@@ -1,56 +1,76 @@
 {% include 'base.html.twig' %}
 {% block body %}
-
     <title>Liste des participants</title>
-    <h1 class="text-left" style="margin-top:2rem;">Filter les sorties</h1>
-    <h4 class="text-left" style="margin-top:2rem;">Site: </h4>
-        <select name="sitesNoSite">
-            {% for lieu in lieux %}
-            <option>
-                {{ lieu.nomLieu }}
-            </option>
-            {% endfor %}
-        </select>
-    <h4 class="text-left" style="margin-top:1rem;">Le nom de la sortie contient:</h4>
-    <div style="text-align: right; margin-top: -1rem; margin-left: -10rem">
-    {{ form_start(form)}}
-    <div class="form-row">
-        <div class="col">
-            {{ form_row(form.nom) }}
+    <h5 class="mb-6">Filter les sorties</h5>
+    <div class="row container-fluid position-relative">
+        <div class="col-6 col-md-6 col-sm-6 mt-2">
+            <div class="card">
+                <div class="card-body">
+                    {% for lieu in lieux %}
+                    <h6>
+                        <label class="mdb-main-label">Site :
+                            <select class="mdb-select md-form">
+                                <option value="1">
+                                    {{ lieu.nomLieu }}
+                                </option>
+                            </select>
+                            {% endfor %}
+                        </label>
+                    </h6>
+                    <form class="form-inline">
+                        <div class="form-group  mb-2">
+                            <h6>Le nom de la sortie contient:</h6>
+                        </div><label>
+                        <input class="mb-3 col-10"/>
+                        </label>
+                        <button type="submit" class="btn btn-primary mb-3">Recherche</button>
+                    </form>
+                    <div class="row">
+                        <h6 class="mb-2" style="margin-top:0.5rem;">Entre:&nbsp;</h6>
+                        <label>
+                            <input type="date"/>
+                        </label>
+                        <h6 style="margin-top:0.5rem;">&nbsp;et:&nbsp;</h6>
+                        <label>
+                            <input type="date"/>
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col">
-            <button class="btn-primary">Recherche</button>
+        <div class="col-6 col-md-6 col-sm-6 mt-2">
+            <div class="card">
+                <div class="card-body">
+                    <div>
+                        <label>
+                            <input type="checkbox" checked>
+                        </label>
+                        <label for="sortieOrganisateurHimself">Sorties dont je suis l'organiseur/trice</label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" checked>
+                        </label>
+                        <label for="sortieOrganisateurHimself">Sorties auxquelles je suis inscrit/e</label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" checked>
+                        </label>
+                        <label for="sortieOrganisateurHimself">Sorties auxquelles je ne suis pas inscrit/e</label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" checked>
+                        </label>
+                        <label for="sortieOrganisateurHimself">Sorties passées</label>
+                    </div>
+                </div>
+            </div>
         </div>
-        {{ form_end(form) }}
     </div>
-    </div>
-    {% for sortie in sorties %}
-    <h4 class="text-left" style="margin-top:1rem;">Entre:</h4>
-    <input type="date" id="{{ sortie.datedebut|date("m/d/Y") }}"/>
-    <h4 class="text-left" style="margin-top:1rem;">et:</h4>
-    <input type="date" id="{{ sortie.datecloture|date("m/d/Y") }}"/>
-    {% endfor %}
-    <div>
-        <input type="checkbox"
-               checked>
-        <label for="sortieOrganisateurHimself">Sorties dont je suis l'organiseur/trice</label>
-    </div>
-    <div>
-        <input type="checkbox"
-               checked>
-        <label for="sortieOrganisateurHimself">Sorties auxquelles je suis inscrit/e</label>
-    </div>
-    <div>
-        <input type="checkbox"
-               checked>
-        <label for="sortieOrganisateurHimself">Sorties auxquelles je ne suis pas inscrit/e</label>
-    </div>
-    <div>
-        <input type="checkbox"
-               checked>
-        <label for="sortieOrganisateurHimself">Sorties passées</label>
-    </div>
-    <div class="container">
+    <br>
+    <div style="margin-top:10rem;" class="container-fluid">
     <table id="participantTable" class="table table-bordered">
         <thead class="thead-dark">
         <tr>
@@ -62,6 +82,7 @@
             <th scope="col">Inscrit</th>
             <th scope="col">Organisateur</th>
             <th scope="col">Actions</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -78,6 +99,8 @@
                 <td>
                     <a class="text-center" href="{{ path('sorties_modifier', {'noSortie' : sortie.noSortie }) }}">
                         Modifier une sortie </a>
+                </td>
+                <td>
                     <a href="{{ path('sorties_delete' , {'noSortie' : sortie.noSortie }) }}">Supprimer</a>
                 </td>
             </tr>

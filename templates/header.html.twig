@@ -11,7 +11,7 @@
                 <a class="text-white" href="../../accueil">Accueil</a>
             </li>
             <li class="btn btn-outline-success my-2 my-sm-0" style="margin-left:0.5rem; margin-right:0.5rem;">
-                <a class="text-white" href="../../profil">Mon Profil</a>
+                <a class="text-white" href="../../show/{{ app.user.noParticipant }}">Mon Profil</a>
             </li>
             <li class="btn btn-outline-danger my-2 my-sm-0">
                 <a class="text-white" href="{{ path('user_logout') }}">Déconnexion</a>
@@ -23,7 +23,7 @@
                         <a class="text-white" href="../../accueil">Accueil</a>
                     </li>
                     <li class="btn btn-outline-success my-2 my-sm-0" style="margin-left:0.5rem; margin-right:0.5rem;">
-                        <a class="text-white" href="../../profil">Mon Profil</a>
+                        <a class="text-white" href="../../show/{{ app.user.noParticipant }}">Mon Profil</a>
                     </li>
                     <li class="btn btn-outline-danger my-2 my-sm-0">
                         <a class="text-white" href="{{ path('user_logout') }}">Déconnexion</a>

@@ -1,8 +1,8 @@
 <?php
+
 namespace App\Controller;
 
 
-use App\Entity\Lieux;
 use App\Entity\PropertySearch;
 use App\Entity\Sites;
 use App\Form\PropertySearchType;
@@ -23,24 +23,18 @@ class SitesController extends AbstractController
     public function list(Request $request)
     {
         $search = new PropertySearch();
-        $form = $this->createForm(PropertySearchType::class , $search);
+        $form = $this->createForm(PropertySearchType::class, $search);
         $form->handleRequest($request);
         $siteRepo = $this->getDoctrine()->getRepository(Sites::class);
         if ($form->isSubmitted() and $form->isValid()) {
             $sites = $siteRepo->findByNom($search);
-        }
-        else{
+        } else {
             $sites = $siteRepo->findAll();
-
         }
-        ;
-
-
-        return $this->render("sites/index.html.twig",[
+        return $this->render("sites/index.html.twig", [
                 "sites" => $sites,
-                'form' => $form ->createView()
+                'form' => $form->createView()
             ]
-
         );
     }
 
@@ -51,27 +45,20 @@ class SitesController extends AbstractController
      */
     public function modifier($noSite, Request $request, EntityManagerInterface $em)
     {
-
-
         $siteRepo = $this->getDoctrine()->getRepository(Sites::class);
         $site = $siteRepo->find($noSite);
         $siteForm = $this->createForm(SiteType::class, $site);
-        //dd($request->request->all());
         $siteForm->handleRequest($request);
         if ($siteForm->isSubmitted()) {
             $em->persist($site);
             $em->flush();
             $this->addFlash('success', 'Le lieu à été sauvegardé!');
-
             return $this->redirectToRoute(
                 'sitessites'
-
             );
-
         } else {
             //  dump($site);
         }
-
         return $this->render(
             'sites/modifier.html.twig',
             ["site" => $site, "siteForm" => $siteForm->createView()]
@@ -83,7 +70,6 @@ class SitesController extends AbstractController
      */
     public function add(EntityManagerInterface $em, Request $request)
     {
-
         $site = new Sites();
         $siteForm = $this->createForm(SiteType::class, $site);
 
@@ -95,11 +81,9 @@ class SitesController extends AbstractController
 
             return $this->redirectToRoute(
                 'sitessites'
-
             );
 
         }
-
         return $this->render(
             'sites/add.html.twig',
             [
@@ -115,7 +99,8 @@ class SitesController extends AbstractController
      */
 
 
-    public function delete($noSite, Request $request, EntityManagerInterface $em){
+    public function delete($noSite, Request $request, EntityManagerInterface $em)
+    {
 
 
         $siteRepo = $this->getDoctrine()->getRepository(Sites::class);
@@ -126,7 +111,6 @@ class SitesController extends AbstractController
 
         return $this->render(
             'sites/delete.html.twig');
-
 
 
     }

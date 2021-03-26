@@ -15,7 +15,7 @@ class SiteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomSite', TextType::class);
+            ->add('nomSite', TextType::class );
     }
 
     public function configureOptions(OptionsResolver $resolver)

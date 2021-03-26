@@ -7,7 +7,9 @@ use App\Entity\Sites;
 use App\Form\ParticipantType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -32,15 +34,27 @@ class ParticipantController extends AbstractController
     /**
      * @Route("/{noParticipant}", name="_modifier",
      *  requirements={"noParticipant" : "\d+"},
-     *  methods={"GET"})
+     *  methods={"GET", "POST"})
      */
 
-    public function modifier($noParticipant, Request $request)
+    public function modifier($noParticipant, Request $request, EntityManagerInterface $em): RedirectResponse|Response
     {
         $participantRepo = $this->getDoctrine()->getRepository(Participants::class);
         $participant = $participantRepo->find($noParticipant);
 
-        return $this->render('participant/update.html.twig', ["participant" => $participant]
+        $participantsForm = $this->createForm(ParticipantType::class, $participant);
+        $participantsForm->handleRequest($request);
+        if ($participantsForm->isSubmitted() and $participantsForm->isValid()) {
+            $em->persist($participant);
+            $em->flush();
+            $this->addFlash('success', 'Le participant à été sauvegardé!');
+
+            return $this->redirectToRoute(
+                'participant'
+
+            );
+        }
+        return $this->render('participant/update.html.twig', ["participant" => $participant, "participantsForm" => $participantsForm->createView()]
         );
     }
 

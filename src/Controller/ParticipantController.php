@@ -36,7 +36,6 @@ class ParticipantController extends AbstractController
      *  requirements={"noParticipant" : "\d+"},
      *  methods={"GET", "POST"})
      */
-
     public function modifier($noParticipant, Request $request, EntityManagerInterface $em): RedirectResponse|Response
     {
         $participantRepo = $this->getDoctrine()->getRepository(Participants::class);

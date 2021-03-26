@@ -29,6 +29,9 @@ class LoginController extends AbstractController
     #[Route('/', name: 'user_login')]
     public function login(AuthenticationUtils $utils): Response
     {
+        if ($utils->getLastAuthenticationError()) {
+            $this->addFlash('danger', 'Pseudonyme ou Mot de passe incorrecte');
+        }
         return $this->render('user/login.html.twig', [
             'controller_name' => 'LoginController',
             'loginError' => $utils->getLastAuthenticationError(),
@@ -111,13 +114,13 @@ class LoginController extends AbstractController
         $lieuRepo = $this->getDoctrine()->getRepository(Lieux::class);
         $lieux = $lieuRepo->findAll();
         $search = new PropertySearch();
-        $form = $this->createForm(PropertySearchType::class , $search);
+        $form = $this->createForm(PropertySearchType::class, $search);
         $form->handleRequest($request);
         return $this->render('accueil/index.html.twig', [
             'sorties' => $sorties,
             'sites' => $sites,
             'lieux' => $lieux,
-            'form' => $form ->createView()
+            'form' => $form->createView()
         ]);
     }
 
@@ -179,11 +182,11 @@ class LoginController extends AbstractController
     public function resetPassword($token, Request $request, UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager)
     {
         $user = $this->getDoctrine()->getRepository(Participants::class)->findOneBy(['reset_token' => $token]);
-        if(!$user) {
+        if (!$user) {
             $this->addFlash('danger', 'Token inconnu');
             return $this->redirectToRoute('user_login');
         }
-        if($request->isMethod('POST')) {
+        if ($request->isMethod('POST')) {
             $user->setResetToken(null);
             $user->setPassword($passwordEncoder->encodePassword($user, $request->request->get('password')));
             $entityManager->persist($user);
@@ -191,7 +194,7 @@ class LoginController extends AbstractController
 
             $this->addFlash('message', 'Mot de passe modifié avec succès');
             return $this->redirectToRoute('user_login');
-        } else{
+        } else {
             return $this->render('user/reset_password.html.twig', ['token' => $token]);
         }
     }

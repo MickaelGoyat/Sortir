@@ -1,30 +1,34 @@
 {% include 'base.html.twig' %}
 {% block body %}
-    {% for message in app.flashes('message') %}
-        <div class="alert alert-success" role="alert">
-            {{ message }}
-        </div>
-    {% endfor %}
-    {% for message in app.flashes('warning') %}
-        <div class="alert alert-warning" role="alert">
-            {{ message }}
-        </div>
-    {% endfor %}
-    {% for message in app.flashes('danger') %}
-        <div class="alert alert-danger" role="alert">
-            {{ message }}
-        </div>
-    {% endfor %}
     {% if loginError %}
         <div>{{ loginError.messageKey|trans(loginError.messageData, 'security') }}</div>
     {% endif %}
     {% if app.user %}
         {% if is_granted('ROLE_ADMIN', 'ROLE_USER') %}
+            <br>
             <p>Accès refusé, vous etes déjà connecté sous l'utilisateur <span
                         style="color:lightsalmon">{{ app.user.username }}</span>.</p>
         {% endif %}
     {% else %}
         <div class="container-fluid">
+            {% for message in app.flashes('message') %}
+                <br>
+                <div class="alert alert-success" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('warning') %}
+                <br>
+                <div class="alert alert-warning" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('danger') %}
+                <br>
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 d-flex flex-column justify-content-center" style="margin-top:10rem;">

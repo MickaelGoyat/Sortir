@@ -3,7 +3,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Lieux;
 use App\Entity\Participants;
+use App\Entity\PropertySearch;
+use App\Entity\Sites;
+use App\Entity\Sorties;
+use App\Form\PropertySearchType;
 use App\Form\RegistrationType;
 use App\Form\ResetPasswordType;
 use App\Repository\ParticipantsRepository;
@@ -96,20 +101,23 @@ class LoginController extends AbstractController
         return $this->redirectToRoute('user_login');
     }
 
-    #[Route('/profil', name: 'after_login_route_name')]
-    public function profil(): Response
+    #[Route('/accueil', name: 'after_login_route_name')]
+    public function accueil(Request $request): Response
     {
-        return $this->render('profil/createProfil.html.twig', [
-            'logo' => 'Ceci est le logo de sortir.com',
-            'pseudo' => 'Pseudo',
-            'prenom' => 'Prénom',
-            'nom' => 'Nom',
-            'telephone' => 'Téléphone',
-            'email' => 'E-mail',
-            'password' => 'Mot de passe',
-            'confirmation' => 'Confirmation',
-            'siteRattachement' => 'Site de rattachement',
-            'photo' => 'Ma photo',
+        $sortieRepo = $this->getDoctrine()->getRepository(Sorties::class);
+        $sorties = $sortieRepo->findAll();
+        $siteRepo = $this->getDoctrine()->getRepository(Sites::class);
+        $sites = $siteRepo->findAll();
+        $lieuRepo = $this->getDoctrine()->getRepository(Lieux::class);
+        $lieux = $lieuRepo->findAll();
+        $search = new PropertySearch();
+        $form = $this->createForm(PropertySearchType::class , $search);
+        $form->handleRequest($request);
+        return $this->render('accueil/index.html.twig', [
+            'sorties' => $sorties,
+            'sites' => $sites,
+            'lieux' => $lieux,
+            'form' => $form ->createView()
         ]);
     }
 

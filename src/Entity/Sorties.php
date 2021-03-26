@@ -26,7 +26,7 @@ class Sorties
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=30, nullable=false)
+     * @ORM\Column(name="nom", type="string", length=100, nullable=false)
      */
     private $nom;
 

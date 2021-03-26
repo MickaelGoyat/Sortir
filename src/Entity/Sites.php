@@ -64,7 +64,7 @@ class Sites
     /**
      * @var string
      *
-     * @ORM\Column(name="nom_site", type="string", length=30, nullable=false)
+     * @ORM\Column(name="nom_site", type="string", length=100, nullable=false)
      */
     private $nomSite;
 

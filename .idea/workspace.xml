@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="add/update sorties and encode password -&gt; ParticipantController.php and update footer">
+    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="Supprimer un participant" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Accueil.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Enums/EtatEnum.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/AccueilType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/AccueilRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/accueil/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_03_2021_16_12_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_03_2021_16_12__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_03_2021_16_14_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_03_2021_16_14__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginController.php" afterDir="false" />
+    <list default="true" id="7cdd8dd3-8ade-4b69-9c28-eba5287d8e59" name="Default Changelist" comment="add/update sorties and encode password -&gt; ParticipantController.php and update footer" />
       <change afterPath="$PROJECT_DIR$/templates/emails/activation.html.twig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/templates/user/forgotten_password.html.twig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/templates/user/reset_password.html.twig" afterDir="false" />
@@ -329,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616625345149</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Supprimer un participant">
+      <created>1616625478842</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1616625478842</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

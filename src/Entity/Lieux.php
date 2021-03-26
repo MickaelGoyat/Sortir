@@ -121,42 +121,48 @@ class Lieux
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $noLieu;
+    private int $noLieu;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom_lieu", type="string", length=30, nullable=false)
      */
-    private $nomLieu;
+    private string $nomLieu;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="rue", type="string", length=30, nullable=true)
      */
-    private $rue;
+    private ?string $rue;
 
     /**
      * @var float|null
      *
      * @ORM\Column(name="latitude", type="float", precision=10, scale=0, nullable=true)
      */
-    private $latitude;
+    private ?float $latitude;
 
     /**
      * @var float|null
      *
      * @ORM\Column(name="longitude", type="float", precision=10, scale=0, nullable=true)
      */
-    private $longitude;
+    private ?float $longitude;
 
     /**
      * @var int
      *
      * @ORM\Column(name="villes_no_ville", type="integer", nullable=false)
      */
-    private $villesNoVille;
+    private int $villesNoVille;
+
+    public function __toString(): string
+    {
+        // TODO: Implement __toString() method.
+        return $this->nomLieu;
+    }
 
 
 }

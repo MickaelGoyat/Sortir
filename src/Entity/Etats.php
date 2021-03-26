@@ -27,12 +27,12 @@ class Etats
      * @ORM\Column(name="libelle", type="string", length=30, nullable=false)
      */
     private $libelle;
-/**
-  *  @ORM\OneToMany(targetEntity="App\Entity\Sorties", mappedBy="etatsorties")
-  * @ORM\JoinColumn(nullable=true, referencedColumnName="no_sorties")
- */
-
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Sorties", mappedBy="etatsorties")
+     * @ORM\JoinColumn(nullable=true, referencedColumnName="no_sorties")
+     */
     private $sorties;
+
     public function getLibelle(): ?string
     {
         return $this->libelle;

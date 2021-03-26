@@ -5,25 +5,37 @@
             <img src="{{ asset('img/sortir.png') }}" style="width:8rem;" alt="sortir logo">
         </div>
         {% if app.user %}
-            {% if is_granted('ROLE_ADMIN', 'ROLE_USER') %}
-                <ul class="nav navbar-nav navbar-right">
-                <li class="btn btn-outline-primary my-2 my-sm-0">
-                    <a class="text-white" href="../../accueil">Accueil</a>
-                </li>
-                <li class="btn btn-outline-success my-2 my-sm-0" style="margin-left:0.5rem; margin-right:0.5rem;">
-                    <a class="text-white" href="../../profil">Mon Profil</a>
-                </li>
-                <li class="btn btn-outline-danger my-2 my-sm-0">
-                    <a class="text-white" href="{{ path('user_logout') }}">Déconnexion</a>
-                </li>
+        {% if is_granted('ROLE_ADMIN') %}
+        <ul class="nav navbar-nav navbar-right">
+            <li class="btn btn-outline-primary my-2 my-sm-0">
+                <a class="text-white" href="../../accueil">Accueil</a>
+            </li>
+            <li class="btn btn-outline-success my-2 my-sm-0" style="margin-left:0.5rem; margin-right:0.5rem;">
+                <a class="text-white" href="../../profil">Mon Profil</a>
+            </li>
+            <li class="btn btn-outline-danger my-2 my-sm-0">
+                <a class="text-white" href="{{ path('user_logout') }}">Déconnexion</a>
+            </li>
             {% endif %}
-            </ul>
-        {% else %}
+                {% if is_granted('ROLE_PARTICIPANT') %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="btn btn-outline-primary my-2 my-sm-0">
+                        <a class="text-white" href="../../accueil">Accueil</a>
+                    </li>
+                    <li class="btn btn-outline-success my-2 my-sm-0" style="margin-left:0.5rem; margin-right:0.5rem;">
+                        <a class="text-white" href="../../profil">Mon Profil</a>
+                    </li>
+                    <li class="btn btn-outline-danger my-2 my-sm-0">
+                        <a class="text-white" href="{{ path('user_logout') }}">Déconnexion</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                {% else %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="btn btn-outline-success my-2 my-sm-0"><a class="text-white" href="{{ path('user_login') }}">Connexion</a>
                 </li>
             </ul>
-        {% endif %}
+            {% endif %}
     </div>
 </nav>

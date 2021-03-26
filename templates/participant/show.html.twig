@@ -1,0 +1,22 @@
+{% include 'base.html.twig' %}
+<div>
+
+    <h1>{{ participant.username }} </h1>
+    <div>
+        <label for="prenom">Prénom : {{ participant.prenom }}</label>
+    </div>
+    <div>
+        <label for="nom">Nom : {{ participant.nom }}</label>
+    </div>
+    <div>
+        <label for="telephone">Téléphone : {{ participant.telephone }}</label>
+    </div>
+    <div>
+        <label for="email">Email : {{ participant.mail }}</label>
+    </div>
+    <div>
+        <label for="siteRattachement">Site de rattachement : {{ participant.sitesNoSite }}</label>
+    </div>
+    <a href="{{ path('_modifier' , {'noParticipant' : participant.noParticipant }) }}">
+        Modifier </a>
+</div>

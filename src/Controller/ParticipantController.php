@@ -59,6 +59,21 @@ class ParticipantController extends AbstractController
     }
 
     /**
+     * @Route("show/{noParticipant}", name="_show",
+     *  requirements={"noParticipant" : "\d+"},
+     *  methods={"GET"})
+     */
+
+    public function afficher($noParticipant, Request $request)
+    {
+        $participantRepo = $this->getDoctrine()->getRepository(Participants::class);
+        $participant = $participantRepo->find($noParticipant);
+        $this->getUser();
+        return $this->render('participant/show.html.twig', ["participant" => $participant]
+        );
+    }
+
+    /**
      * @Route ("/participant/add", name="participants_add")
      */
     public function add(EntityManagerInterface $em, Request $request, UserPasswordEncoderInterface $encoder)

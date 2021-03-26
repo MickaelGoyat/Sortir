@@ -7,6 +7,12 @@
         {% if app.user %}
         {% if is_granted('ROLE_ADMIN') %}
         <ul class="nav navbar-nav navbar-right">
+            <li class="btn my-2 my-sm-0">
+                <a class="text-white" href="../../villes">Villes</a>
+            </li>
+            <li class="btn my-2 my-sm-0">
+                <a class="text-white" href="../../sites">Sites</a>
+            </li>
             <li class="btn btn-outline-primary my-2 my-sm-0">
                 <a class="text-white" href="../../accueil">Accueil</a>
             </li>
@@ -19,6 +25,12 @@
             {% endif %}
                 {% if is_granted('ROLE_PARTICIPANT') %}
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="btn my-2 my-sm-0">
+                        <a class="text-white" href="../../villes">Villes</a>
+                    </li>
+                    <li class="btn my-2 my-sm-0">
+                        <a class="text-white" href="../../sites">Sites</a>
+                    </li>
                     <li class="btn btn-outline-primary my-2 my-sm-0">
                         <a class="text-white" href="../../accueil">Accueil</a>
                     </li>

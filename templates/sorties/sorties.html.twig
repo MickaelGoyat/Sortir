@@ -22,6 +22,7 @@
             </thead>
             <tbody>
             {% for sortie in sorties %}
+            {% if 'now'| date('Ymd') - sortie.datecloture|date('Ymd') > 30 %}
             <div class="sorties">
                 <tr>
                     <td> {{ sortie.noSortie }}</td>
@@ -46,6 +47,7 @@
                         <a href="{{ path('sorties_annuler' , {'noSortie' : sortie.noSortie }) }}">Annuler</a>
                     </td>
                 </tr>
+                {% endif %}
                 {% endfor %}
             </div>
             </tbody>

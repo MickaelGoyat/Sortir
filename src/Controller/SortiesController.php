@@ -106,7 +106,7 @@ class SortiesController extends AbstractController
         $em->flush();
 
         return $this->render(
-            'sortie/delete.sorties.html.twig'
+            'sorties/delete.html.twig'
         );
     }
 

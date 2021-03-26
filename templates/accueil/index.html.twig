@@ -24,7 +24,32 @@
         {{ form_end(form) }}
     </div>
     </div>
+    {% for sortie in sorties %}
     <h4 class="text-left" style="margin-top:1rem;">Entre:</h4>
+    <input type="date" id="{{ sortie.datedebut|date("m/d/Y") }}"/>
+    <h4 class="text-left" style="margin-top:1rem;">et:</h4>
+    <input type="date" id="{{ sortie.datecloture|date("m/d/Y") }}"/>
+    {% endfor %}
+    <div>
+        <input type="checkbox"
+               checked>
+        <label for="sortieOrganisateurHimself">Sorties dont je suis l'organiseur/trice</label>
+    </div>
+    <div>
+        <input type="checkbox"
+               checked>
+        <label for="sortieOrganisateurHimself">Sorties auxquelles je suis inscrit/e</label>
+    </div>
+    <div>
+        <input type="checkbox"
+               checked>
+        <label for="sortieOrganisateurHimself">Sorties auxquelles je ne suis pas inscrit/e</label>
+    </div>
+    <div>
+        <input type="checkbox"
+               checked>
+        <label for="sortieOrganisateurHimself">Sorties passées</label>
+    </div>
     <div class="container">
     <table id="participantTable" class="table table-bordered">
         <thead class="thead-dark">

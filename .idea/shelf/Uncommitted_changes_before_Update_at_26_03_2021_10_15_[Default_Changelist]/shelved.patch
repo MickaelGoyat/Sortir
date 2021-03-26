@@ -1,0 +1,37 @@
+Index: src/Controller/SortiesController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Controller;\r\n\r\n\r\nuse App\\Entity\\Sorties;\r\nuse App\\Form\\AnnulerType;\r\nuse App\\Form\\SortiesType;\r\nuse App\\Repository\\EtatsRepository;\r\nuse App\\Repository\\ParticipantsRepository;\r\nuse App\\Repository\\SortiesRepository;\r\nuse Doctrine\\ORM\\EntityManagerInterface;\r\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\r\nuse Symfony\\Component\\HttpFoundation\\RedirectResponse;\r\nuse Symfony\\Component\\HttpFoundation\\Request;\r\nuse Symfony\\Component\\HttpFoundation\\Response;\r\nuse Symfony\\Component\\Routing\\Annotation\\Route;\r\n\r\n/**\r\n * @Route(\"/sorties\", name=\"sorties\")\r\n */\r\nclass SortiesController extends AbstractController\r\n{\r\n    /**\r\n     * @Route(\"/\", name=\"sorties\")\r\n     */\r\n    public function list(): Response\r\n    {\r\n        $sortiesRepo = $this->getDoctrine()->getRepository(Sorties::class);\r\n        $sorties = $sortiesRepo->findAll();\r\n\r\n        return $this->render(\r\n            \"sorties/sorties.html.twig\",\r\n            [\r\n                \"sorties\" => $sorties,\r\n            ]\r\n        );\r\n    }\r\n\r\n    /**\r\n     * @Route(\"/{noSortie}\", name=\"_modifier\",\r\n     *  requirements={\"noSortie\" : \"\\d+\"},\r\n     *  methods={\"GET\", \"POST\"})\r\n     */\r\n    public function modifier($noSortie, Request $request, EntityManagerInterface $em): RedirectResponse|Response\r\n    {\r\n        $sortiesRepo = $this->getDoctrine()->getRepository(Sorties::class);\r\n        $sorties = $sortiesRepo->find($noSortie);\r\n\r\n        $sortiesForm = $this->createForm(SortiesType::class, $sorties);\r\n        $sortiesForm->handleRequest($request);\r\n        if ($sortiesForm->isSubmitted() and $sortiesForm->isValid()) {\r\n            $em->persist($sorties);\r\n            $em->flush();\r\n            $this->addFlash('success', 'Le lieu à été sauvegardé!');\r\n\r\n            return $this->redirectToRoute(\r\n                'sortiessorties'\r\n\r\n            );\r\n        }\r\n        return $this->render(\r\n            'sorties/modifier.sorties.html.twig',\r\n            [\"sorties\" => $sorties, \"sortiesForm\" => $sortiesForm->createView()]\r\n        );\r\n    }\r\n\r\n    /**\r\n     * @Route (\"/add\", name=\"sorties_add\")\r\n     */\r\n    public function add(EntityManagerInterface $em, Request $request): RedirectResponse|Response\r\n    {\r\n        $sorties = new Sorties();\r\n        $sortiesForm = $this->createForm(SortiesType::class, $sorties);\r\n        $sortiesForm->handleRequest($request);\r\n        if ($sortiesForm->isSubmitted() and $sortiesForm->isValid()) {\r\n            $em->persist($sorties);\r\n            $em->flush();\r\n            $this->addFlash('sucess', 'La sortie à été sauvegarder!');\r\n\r\n            return $this->redirectToRoute('sortiessorties');\r\n        }\r\n\r\n        return $this->render(\r\n            'sorties/add.sorties.html.twig',\r\n            [\r\n                \"sortiesForm\" => $sortiesForm->createView(),\r\n            ]\r\n        );\r\n    }\r\n\r\n    /**\r\n     * @Route(\"/delete/{noSortie}\", name=\"_delete\",\r\n     *  requirements={\"noSortie\" : \"\\d+\"},\r\n     *  methods={\"GET\",\"POST\"})\r\n     * @param $noSortie\r\n     * @param EntityManagerInterface $em\r\n     * @return Response\r\n     */\r\n\r\n    public function delete($noSortie, EntityManagerInterface $em): Response\r\n    {\r\n        $sortieRepo = $this->getDoctrine()->getRepository(Sorties::class);\r\n        $sortie = $sortieRepo->find($noSortie);\r\n        $em->remove($sortie);\r\n        $em->flush();\r\n\r\n        return $this->render(\r\n            'sortie/delete.sorties.html.twig'\r\n        );\r\n    }\r\n\r\n    /**\r\n     * @Route(\"/annuler/{noSortie}\", name=\"_annuler\",\r\n     *  requirements={\"noSortie\" : \"\\d+\"},\r\n     *  methods={\"GET\",\"POST\"})\r\n     */\r\n    public function annuler($noSortie, Request $request, EntityManagerInterface $em): Response\r\n    {\r\n        $sortiesRepo = $this->getDoctrine()->getRepository(Sorties::class);\r\n        $sorties = $sortiesRepo->find($noSortie);\r\n\r\n        $sortiesForm = $this->createForm(AnnulerType::class, $sorties);\r\n\r\n        $sortiesForm->handleRequest($request);\r\n        $em->persist($sorties);\r\n        $em->flush();\r\n        $this->addFlash('success', 'Le lieu à été sauvegardé!');\r\n\r\n\r\n        dump($sortiesForm);\r\n        return $this->render(\r\n            'sorties/annuler.html.twig',\r\n            [\"sorties\" => $sorties, \"sortiesForm\" => $sortiesForm->createView()]\r\n        );\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Controller/SortiesController.php b/src/Controller/SortiesController.php
+--- a/src/Controller/SortiesController.php	(revision ef28e363033f3cc942f484f9393007a27475b7c1)
++++ b/src/Controller/SortiesController.php	(date 1616750135222)
+@@ -74,11 +74,16 @@
+         $sortiesForm = $this->createForm(SortiesType::class, $sorties);
+         $sortiesForm->handleRequest($request);
+         if ($sortiesForm->isSubmitted() and $sortiesForm->isValid()) {
++            if($sorties->getDatedebut()<$sorties->getDatecloture()) {
+             $em->persist($sorties);
+             $em->flush();
+-            $this->addFlash('sucess', 'La sortie à été sauvegarder!');
++            $this->addFlash('success', 'La sortie à été sauvegarder!');
+ 
+             return $this->redirectToRoute('sortiessorties');
++        } else {
++            $this->addFlash('danger', 'La date début de la sortie est supérieur à la date cloture ');
++            return $this->redirectToRoute('sortiessorties');
++            }
+         }
+ 
+         return $this->render(
+@@ -106,7 +111,7 @@
+         $em->flush();
+ 
+         return $this->render(
+-            'sortie/delete.sorties.html.twig'
++            'sorties/delete.sorties.html.twig'
+         );
+     }
+ 

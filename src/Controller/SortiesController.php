@@ -74,11 +74,16 @@ class SortiesController extends AbstractController
         $sortiesForm = $this->createForm(SortiesType::class, $sorties);
         $sortiesForm->handleRequest($request);
         if ($sortiesForm->isSubmitted() and $sortiesForm->isValid()) {
+            if($sorties->getDatedebut()<$sorties->getDatecloture()) {
             $em->persist($sorties);
             $em->flush();
-            $this->addFlash('sucess', 'La sortie à été sauvegarder!');
+            $this->addFlash('success', 'La sortie à été sauvegarder!');
 
             return $this->redirectToRoute('sortiessorties');
+        } else {
+            $this->addFlash('danger', 'La date début de la sortie est supérieur à la date cloture ');
+            return $this->redirectToRoute('sortiessorties');
+            }
         }
 
         return $this->render(
